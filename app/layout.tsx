@@ -1,24 +1,24 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
+import { Analytics } from "./components/analytics.tsx";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "Eduarda Magno",
+    template: "%s | Eduarda Magno",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Computer Science student and passionate developer.",
   openGraph: {
-    title: "chronark.com",
+    title: "Eduarda Magno",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "I'm Eduarda Magno, a Computer Science student with a passion for software development.",
+    url: "https://eduardagmagno.com",  
+    siteName: "Eduarda Magno",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://yourdomain.com/og.png",  
         width: 1920,
         height: 1080,
       },
@@ -38,13 +38,14 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Eduarda Magno",
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.png",
+    shortcut: "/favicon.svg",  
   },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",

@@ -78,6 +78,7 @@ export default function Particles({
 		dx: number;
 		dy: number;
 		magnetism: number;
+		binaryCharacter: string; // Add this field
 	};
 
 	const resizeCanvas = () => {
@@ -104,6 +105,10 @@ export default function Particles({
 		const dx = (Math.random() - 0.5) * 0.2;
 		const dy = (Math.random() - 0.5) * 0.2;
 		const magnetism = 0.1 + Math.random() * 4;
+		
+		// Assign either '0' or '1' randomly
+		const binaryCharacter = Math.random() > 0.5 ? '1' : '0';
+		
 		return {
 			x,
 			y,
@@ -115,17 +120,23 @@ export default function Particles({
 			dx,
 			dy,
 			magnetism,
+			binaryCharacter, // Store the binary character
 		};
 	};
 
 	const drawCircle = (circle: Circle, update = false) => {
 		if (context.current) {
-			const { x, y, translateX, translateY, size, alpha } = circle;
+			const { x, y, translateX, translateY, size, alpha, binaryCharacter } = circle;
 			context.current.translate(translateX, translateY);
 			context.current.beginPath();
-			context.current.arc(x, y, size, 0, 2 * Math.PI);
+			
+			// Set font size and style
+			context.current.font = `${size * 10}px Arial`; // Adjust font size based on the circle's size
 			context.current.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-			context.current.fill();
+
+			// Draw the binary character at the particle's position
+			context.current.fillText(binaryCharacter, x, y);
+
 			context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 
 			if (!update) {
@@ -208,7 +219,6 @@ export default function Particles({
 				// create a new circle
 				const newCircle = circleParams();
 				drawCircle(newCircle);
-				// update the circle position
 			} else {
 				drawCircle(
 					{
@@ -218,6 +228,7 @@ export default function Particles({
 						translateX: circle.translateX,
 						translateY: circle.translateY,
 						alpha: circle.alpha,
+						binaryCharacter: circle.binaryCharacter, // Ensure binary character stays consistent
 					},
 					true,
 				);
@@ -232,3 +243,4 @@ export default function Particles({
 		</div>
 	);
 }
+

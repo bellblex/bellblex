@@ -107,5 +107,9 @@ module.exports = {
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("tailwindcss-debug-screens"),
+		require("daisyui"),
 	],
+	daisyui: {
+		themes: ["light", "dark"],
+	},
 };
