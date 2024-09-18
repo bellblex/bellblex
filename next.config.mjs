@@ -3,7 +3,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   reactStrictMode: true,
   experimental: {
-    mdxRs: true, // Keep this if you're using MDX
+    mdxRs: true, 
   },
 };
 

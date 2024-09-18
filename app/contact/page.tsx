@@ -1,7 +1,7 @@
 "use client";  
 
-import React from 'react';
-import { Github, Mail, Instagram } from "lucide-react";
+import React from "react";
+import { Github, Mail, Instagram, Linkedin  } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { motion } from "framer-motion";
@@ -14,16 +14,22 @@ const socials = [
     handle: "@eduardagmagno",
   },
   {
-    icon: <Mail size={40} />,
-    href: "mailto:eduardagouveiamagno@gmail.com",
-    label: "Email",
-    handle: "eduardagouveiamagno@gmail.com"
-  },
+    icon: <Linkedin size={40} />,
+    href: "https://www.linkedin.com/in/eduardagmagno",
+    label: "Linkdin",
+    handle: "@eduardagmagno",
+  },  
   {
     icon: <Github size={40} />,
     href: "https://github.com/bellblex",
     label: "Github",
     handle: "bellblex",
+  },
+  {
+    icon: <Mail size={40} />,
+    href: "mailto:eduardagmagno@gmail.com",
+    label: "Email",
+    handle: "eduardagmagno@gmail.com",
   },
 ];
 
@@ -97,12 +103,15 @@ const ContactPage: React.FC = () => {
 
             <motion.div variants={fadeInUp} className="pl-8">
               <form className="space-y-6">
+                <input type="text" style={{ display: "none" }} autoComplete="new-password" />
+
                 <div className="space-y-3">
                   <label className="block text-sm text-white">Name</label>
                   <input
                     type="text"
                     placeholder="Your Name"
                     className="w-full p-4 text-sm bg-transparent border-b-2 border-gray-500 text-white focus:border-pink-500 outline-none"
+                    autoComplete="off"
                   />
                 </div>
                 <div className="space-y-3">
@@ -111,6 +120,7 @@ const ContactPage: React.FC = () => {
                     type="email"
                     placeholder="Your Email"
                     className="w-full p-4 bg-transparent text-sm border-b-2 border-gray-500 text-white focus:border-pink-500 outline-none"
+                    autoComplete="new-email"
                   />
                 </div>
                 <div className="space-y-3">
@@ -119,6 +129,7 @@ const ContactPage: React.FC = () => {
                     type="text"
                     placeholder="Subject"
                     className="w-full p-4 bg-transparent text-sm border-b-2 border-gray-500 text-white focus:border-pink-500 outline-none"
+                    autoComplete="new-subject" 
                   />
                 </div>
                 <div className="space-y-3">
@@ -127,6 +138,7 @@ const ContactPage: React.FC = () => {
                     placeholder="Your Message"
                     className="w-full p-4 text-sm bg-transparent border-b-2 border-gray-500 text-white focus:border-pink-500 outline-none"
                     rows={4}
+                    autoComplete="off"
                   ></textarea>
                 </div>
                 <div className="flex justify-center">
