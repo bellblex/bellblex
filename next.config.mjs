@@ -1,15 +1,10 @@
-import { withContentlayer } from "next-contentlayer";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"], // Support JS, JSX, TS, TSX, MD, and MDX files
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  reactStrictMode: true,
   experimental: {
-    mdxRs: true,  // Support the experimental MDX with the Rust compiler
+    mdxRs: true, // Keep this if you're using MDX
   },
-  reactStrictMode: true,  // Enable React Strict Mode for better development experience
-  swcMinify: true,  // Enable SWC-based minification for better performance
-  // Vercel will automatically handle server-side rendering, dynamic routes, and static pages,
-  // so no need for additional output settings here
 };
 
-export default withContentlayer(nextConfig);
+export default nextConfig;
