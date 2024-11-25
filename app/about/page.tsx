@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
-import { Card } from "../components/card"; // Ensure the correct import path
-import { Navigation } from "../components/nav";
-import Timeline from "../components/timeline";
 
+import React from "react";
+import { Card } from "../components/card";
+import { Navigation } from "../components/nav";
+import { useTheme } from "../themeContext";
+import { motion } from "framer-motion";
 
 const experiences = [
   {
@@ -32,96 +33,124 @@ const experiences = [
 const skills = ["JavaScript", "React", "Node.js", "Python", "SQL", "Git"];
 
 export default function AboutMe() {
+  const { theme } = useTheme(); 
+
+  const cardAnimation = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.8, ease: "easeOut" },
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-tl from-[#000033] via-[#301934] to-[#0e3d31] flex flex-col items-center justify-center">
+    <div
+      className={`min-h-screen flex flex-col items-center justify-center ${
+        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
+      }`}
+    >
       <Navigation />
       <div className="container mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-center text-white mb-12">
+        <h1 className="text-4xl font-bold text-center text-primary mb-12">
           About Me
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Card>
-            <div className="p-8 text-center text-white">
-              <h2 className="text-2xl font-semibold mb-4">Background</h2>
-              <p className="text-zinc-400">
-                I'm Eduarda Magno, an Informatics Engineer and Computer Scientist
-                Student at{" "}
-                <a
-                  href="https://goo.gl/maps/4ZkNnFojigT2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline"
-                >
-                  Universidade do Porto
-                </a>
-                . My passion for technology drives me to continuously learn and
-                innovate.
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <div className="p-8 text-center text-white">
-              <h2 className="text-2xl font-semibold mb-4">Interests</h2>
-              <p className="text-zinc-400">
-                I have a keen interest in software development, artificial
-                intelligence, and solving complex problems. I'm always excited to
-                work on projects that challenge me and help me grow as a
-                professional.
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <div className="p-8 text-center text-white">
-              <h2 className="text-2xl font-semibold mb-4">Skills</h2>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {skills.map((skill, index) => (
-                  <span key={index} className="badge badge-primary">
-                    {skill}
-                  </span>
-                ))}
+          <motion.div {...cardAnimation}>
+            <Card>
+              <div className="p-8 text-center text-primary">
+                <h2 className="text-2xl font-semibold mb-4">Background</h2>
+                <p className="text-secondary">
+                  I'm Eduarda Magno, an Informatics Engineer and Computer
+                  Scientist Student at{" "}
+                  <a
+                    href="https://goo.gl/maps/4ZkNnFojigT2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent underline"
+                  >
+                    Universidade do Porto
+                  </a>
+                  . My passion for technology drives me to continuously learn
+                  and innovate.
+                </p>
               </div>
-            </div>
-          </Card>
-          <Card>
-            <div className="p-8 text-center text-white">
-              <h2 className="text-2xl font-semibold mb-4">Projects</h2>
-              <p className="text-zinc-400">
-                I have worked on several projects during my studies and
-                internships, including web applications, machine learning models,
-                and data analysis tools. Each project has contributed to my
-                understanding and growth as a developer.
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <div className="p-8 text-center text-white">
-              <h2 className="text-2xl font-semibold mb-4">Hobbies</h2>
-              <p className="text-zinc-400">
-                Outside of technology, I enjoy reading, hiking, and exploring new
-                places. I believe that a balance between work and personal
-                interests is key to a fulfilling life.
-              </p>
-            </div>
-          </Card>
-          <Card>
-            <div className="p-8 text-center text-white">
-              <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-              <p className="text-zinc-400">
-                If you'd like to connect, feel free to{" "}
-                <a
-                  href="mailto:eduardagouveiamagno@gmail.com"
-                  className="text-blue-500 underline"
-                >
-                  send me an email
-                </a>
-                . I'm always open to discussing new projects, ideas, or
-                collaborations.
-              </p>
-            </div>
-          </Card>
-        </div>
-        <Timeline></Timeline>
+            </Card>
+          </motion.div>
 
+          <motion.div {...cardAnimation} transition={{ delay: 0.2 }}>
+            <Card>
+              <div className="p-8 text-center text-primary">
+                <h2 className="text-2xl font-semibold mb-4">Interests</h2>
+                <p className="text-secondary">
+                  I have a keen interest in software development, artificial
+                  intelligence, and solving complex problems. I'm always excited
+                  to work on projects that challenge me and help me grow as a
+                  professional.
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Skills Section */}
+          <motion.div {...cardAnimation} transition={{ delay: 0.4 }}>
+            <Card>
+              <div className="p-8 text-center text-primary">
+                <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {skills.map((skill, index) => (
+                    <span key={index} className="badge badge-primary">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+
+          <motion.div {...cardAnimation} transition={{ delay: 0.6 }}>
+            <Card>
+              <div className="p-8 text-center text-primary">
+                <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+                <p className="text-secondary">
+                  I have worked on several projects during my studies and
+                  internships, including web applications, machine learning
+                  models, and data analysis tools. Each project has contributed
+                  to my understanding and growth as a developer.
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+
+          <motion.div {...cardAnimation} transition={{ delay: 0.8 }}>
+            <Card>
+              <div className="p-8 text-center text-primary">
+                <h2 className="text-2xl font-semibold mb-4">Hobbies</h2>
+                <p className="text-secondary">
+                  Outside of technology, I enjoy reading, hiking, and exploring
+                  new places. I believe that a balance between work and personal
+                  interests is key to a fulfilling life.
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+
+          <motion.div {...cardAnimation} transition={{ delay: 1 }}>
+            <Card>
+              <div className="p-8 text-center text-primary">
+                <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+                <p className="text-secondary">
+                  If you'd like to connect, feel free to{" "}
+                  <a
+                    href="mailto:eduardagouveiamagno@gmail.com"
+                    className="text-accent underline"
+                  >
+                    send me an email
+                  </a>
+                  . I'm always open to discussing new projects, ideas, or
+                  collaborations.
+                </p>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

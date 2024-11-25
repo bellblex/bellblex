@@ -68,8 +68,8 @@ const ContactPage: React.FC = () => {
         >
           {/* Title Section */}
           <motion.div className="text-center mb-12 animate-fade-in-up">
-            <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-6">
-              CONTACT
+            <h1 className="text-4xl sm:text-5xl font-bold text-center text-primary mb-12">
+            Contact
             </h1>
           </motion.div>
 
