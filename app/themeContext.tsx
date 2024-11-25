@@ -14,7 +14,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
+    const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme); // Set theme from local storage or default to 'dark'
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);

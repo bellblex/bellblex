@@ -99,7 +99,6 @@ const ContactForm: React.FC = () => {
             placeholder="Your Message"
             required
             className={`w-full p-4 text-sm bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
-            rows={4}
           ></textarea>
         </div>
 
