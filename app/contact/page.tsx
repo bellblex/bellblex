@@ -75,13 +75,13 @@ const ContactPage: React.FC = () => {
 
           {/* Content Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 relative animate-fade-in-up"
+            className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-12 relative animate-fade-in-up pr-0 sm:pr-8 "
           >
             {/* Vertical Divider */}
             <div className="hidden md:block absolute inset-y-0 left-1/2 transform -translate-x-1/2 border-l-2 border-secondary"></div>
 
             {/* Left Side (Profile Info) */}
-            <motion.div className="space-y-8 pr-8 flex flex-col items-center">
+            <motion.div className="space-y-8 flex flex-col items-center justify-center">
               <div className="relative flex justify-center">
                 <div className="avatar">
                   <div className="w-64 h-64 rounded-lg shadow-lg overflow-hidden">
@@ -108,7 +108,7 @@ const ContactPage: React.FC = () => {
               </div>
 
               {/* Social Icons */}
-              <div className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mt-8">                
+              <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6 md:space-x-8 mt-8">
                 {socials.map((s) => (
                   <Link
                     key={s.href}
@@ -125,7 +125,7 @@ const ContactPage: React.FC = () => {
             </motion.div>
 
             {/* Right Side (Contact Form) */}
-            <motion.div className="animate-fade-in-up flex justify-center">
+            <motion.div className="pl-0 sm:pl-8 flex justify-center items-center">
               <ContactForm />
             </motion.div>
           </motion.div>
