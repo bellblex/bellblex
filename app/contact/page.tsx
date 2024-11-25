@@ -50,7 +50,7 @@ const ContactPage: React.FC = () => {
       <motion.div
         initial="hidden"
         animate="visible"
-        className="flex-grow flex items-center justify-center p-6 sm:p-12 relative z-10"
+        className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12 relative z-10"
       >
         <motion.div
           className="p-10 w-full max-w-4xl relative rounded-lg shadow-lg animate-fade-in-up"

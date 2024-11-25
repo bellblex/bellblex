@@ -35,7 +35,7 @@ export default function Home() {
         </ul>
 
         {/* Theme Toggle Button */}
-        <div className="flex items-center ml-4">
+        <div className="flex items-center">
           <label className="swap swap-rotate">
             {/* Hidden Checkbox */}
             <input
@@ -80,7 +80,7 @@ export default function Home() {
     </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
+      <div className="my-16 text-center animate-fade-in px-8">
         <h2 className="text-sm text-zinc-500 ">
           I am an Informatics Engineer and Computer Scientist Student at{" "}
           <Link
