@@ -3,7 +3,7 @@
 import "../global.css";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
-import { Analytics } from "./components/analytics";
+import AnalyticsWrapper from "./components/analytics";
 import { ThemeProvider } from "./themeContext";
 
 const inter = Inter({
@@ -24,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
-        <Analytics />
       </head>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+        <AnalyticsWrapper />
       </body>
     </html>
   );
