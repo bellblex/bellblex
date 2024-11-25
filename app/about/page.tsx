@@ -33,7 +33,7 @@ const experiences = [
 const skills = ["JavaScript", "React", "Node.js", "Python", "SQL", "Git"];
 
 export default function AboutMe() {
-  const { theme } = useTheme(); 
+  const { theme } = useTheme();
 
   const cardAnimation = {
     initial: { opacity: 0, scale: 0.9 },
@@ -43,9 +43,8 @@ export default function AboutMe() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-center ${
-        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-      }`}
+      className={`min-h-screen flex flex-col items-center justify-center ${theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
+        }`}
     >
       <Navigation />
       <div className="container mx-auto px-6 py-12">
@@ -80,10 +79,7 @@ export default function AboutMe() {
               <div className="p-8 text-center text-primary">
                 <h2 className="text-2xl font-semibold mb-4">Interests</h2>
                 <p className="text-secondary">
-                  I have a keen interest in software development, artificial
-                  intelligence, and solving complex problems. I'm always excited
-                  to work on projects that challenge me and help me grow as a
-                  professional.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis dapibus dolor, et suscipit massa. Vivamus pharetra tortor nec ipsum efficitur posuere. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus arcu eros, fermentum vitae tristique et, lacinia at diam. Proin consequat ex arcu, id vehicula erat lacinia ac. Nam posuere felis ante, eu ornare libero suscipit ac. Mauris aliquam arcu quis tincidunt volutpat.
                 </p>
               </div>
             </Card>
@@ -110,10 +106,7 @@ export default function AboutMe() {
               <div className="p-8 text-center text-primary">
                 <h2 className="text-2xl font-semibold mb-4">Projects</h2>
                 <p className="text-secondary">
-                  I have worked on several projects during my studies and
-                  internships, including web applications, machine learning
-                  models, and data analysis tools. Each project has contributed
-                  to my understanding and growth as a developer.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis dapibus dolor, et suscipit massa. Vivamus pharetra tortor nec ipsum efficitur posuere. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus arcu eros, fermentum vitae tristique et, lacinia at diam. Proin consequat ex arcu, id vehicula erat lacinia ac. Nam posuere felis ante, eu ornare libero suscipit ac. Mauris aliquam arcu quis tincidunt volutpat. 
                 </p>
               </div>
             </Card>
@@ -124,9 +117,7 @@ export default function AboutMe() {
               <div className="p-8 text-center text-primary">
                 <h2 className="text-2xl font-semibold mb-4">Hobbies</h2>
                 <p className="text-secondary">
-                  Outside of technology, I enjoy reading, hiking, and exploring
-                  new places. I believe that a balance between work and personal
-                  interests is key to a fulfilling life.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis dapibus dolor, et suscipit massa. Vivamus pharetra tortor nec ipsum efficitur posuere. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus arcu eros, fermentum vitae tristique et, lacinia at diam. Proin consequat ex arcu, id vehicula erat lacinia ac. Nam posuere felis ante, eu ornare libero suscipit ac. Mauris aliquam arcu quis tincidunt volutpat. 
                 </p>
               </div>
             </Card>
