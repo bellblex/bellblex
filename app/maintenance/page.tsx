@@ -10,7 +10,7 @@ export default function MaintenancePage() {
       <Navigation />
 
       {/* Title */}
-      <h1 className="text-5xl font-bold text-primary mb-8 animate-fade-in-up">
+      <h1 className="text-5xl font-bold text-primary text-center mb-8 animate-fade-in-up px-4">
         Undergoing Maintenance...
       </h1>
 
