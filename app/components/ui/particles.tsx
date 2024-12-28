@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { useMousePosition } from "@/util/mouse";
-import { useTheme } from "../themeContext";
+import { useTheme } from "../../themeContext";
 
 interface ParticlesProps {
   className?: string;

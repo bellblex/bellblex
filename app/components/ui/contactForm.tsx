@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ContactPopup from "./contactPopUp";
-import { useTheme } from "../themeContext";
+import { useTheme } from "../../themeContext";
 
 const ContactForm: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -28,7 +28,7 @@ const ContactForm: React.FC = () => {
         setFromName("");
       } else {
         setStatusMessage("Something went wrong. Please try again later.");
-        setShowPopup(true); 
+        setShowPopup(true);
       }
     } catch (error) {
       console.error("Form submission error:", error);

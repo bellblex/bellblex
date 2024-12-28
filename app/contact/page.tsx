@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import { Navigation } from "../components/nav";
-import ContactForm from "../components/contactForm";
+import ContactForm from "../components/ui/contactForm";
 import { useTheme } from "../themeContext"; // Assuming a theme context for toggling
 
 const socials = [
@@ -40,9 +40,8 @@ const ContactPage: React.FC = () => {
 
   return (
     <div
-      className={`relative min-h-screen flex flex-col items-center justify-center text-base-content ${
-        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-      }`}
+      className={`relative min-h-screen flex flex-col items-center justify-center text-base-content ${theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
+        }`}
     >
       {/* Include Navigation */}
       <Navigation />
@@ -69,7 +68,7 @@ const ContactPage: React.FC = () => {
           {/* Title Section */}
           <motion.div className="text-center mb-12 animate-fade-in-up">
             <h1 className="text-4xl sm:text-5xl font-bold text-center text-primary mb-12">
-            Contact
+              Contact
             </h1>
           </motion.div>
 

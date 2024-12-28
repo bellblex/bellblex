@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
-import Particles from "./components/particles";
+import Particles from "./components/ui/particles";
 import { useTheme } from "./themeContext";
 
 const navigation = [
@@ -16,10 +16,9 @@ export default function Home() {
 
   return (
     <div
-  className={`flex flex-col items-center justify-center w-screen h-screen overflow-hidden ${
-    theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-  }`}
-    > 
+      className={`flex flex-col items-center justify-center w-screen h-screen overflow-hidden ${theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
+        }`}
+    >
       {/* Navigation Bar */}
       <nav className="my-16 animate-fade-in flex items-center justify-center gap-8">
         <ul className="flex items-center justify-center gap-4">
@@ -69,15 +68,14 @@ export default function Home() {
         className="absolute inset-0 z-10 animate-fade-in pointer-events-none"
         quantity={100}
       />
-    <h1
-      className={`py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-clip-text cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap ${
-        theme === "dark"
-          ? "bg-gradient-to-r from-[#A0AEC0] via-[#63B3ED] to-[#FFD700]"
-          : "bg-gradient-to-r from-[#6C757D] via-[#87CEEB] to-[#FFD700]"
-      }`}
-    >
-      Eduarda Magno
-    </h1>
+      <h1
+        className={`py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-clip-text cursor-default animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap ${theme === "dark"
+            ? "bg-gradient-to-r from-[#A0AEC0] via-[#63B3ED] to-[#FFD700]"
+            : "bg-gradient-to-r from-[#6C757D] via-[#87CEEB] to-[#FFD700]"
+          }`}
+      >
+        Eduarda Magno
+      </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in px-8">
