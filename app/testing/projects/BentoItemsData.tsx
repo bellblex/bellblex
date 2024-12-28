@@ -9,7 +9,7 @@ export const projects = [
       title: "Project 2",
       description: "Description for Project 2",
       link: "https://example.com/project2",
-      image: null, // Set to null if no image is available
+      image: null,
     },
     {
       title: "Project 3",

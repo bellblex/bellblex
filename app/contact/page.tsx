@@ -36,7 +36,7 @@ const socials = [
 ];
 
 const ContactPage: React.FC = () => {
-  const { theme } = useTheme(); // Access the current theme
+  const { theme } = useTheme();
 
   return (
     <div
