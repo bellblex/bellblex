@@ -1,11 +1,23 @@
 "use client";
 
 import React from "react";
-import { Navigation } from "../components/nav";
-import { useTheme } from "../themeContext";
-import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
+import { Navigation } from "../../components/nav";
+import { useTheme } from "../../themeContext";
+import { BentoGrid, BentoGridItem } from "../../components/ui/bento-grid";
 import { projects } from "./BentoItemsData";
 import Image from "next/image";
+
+// Define DebugComponent
+function DebugComponent() {
+  if (process.env.NODE_ENV !== "development") {
+    return null; // Do not render in production
+  }
+  return (
+    <div className="fixed bottom-4 right-4 bg-gray-800 text-white p-4 rounded-lg shadow-lg">
+      Development Debug Panel
+    </div>
+  );
+}
 
 export default function Projects() {
   const { theme } = useTheme();
@@ -46,6 +58,8 @@ export default function Projects() {
           ))}
         </BentoGrid>
       </div>
+      {/* Include DebugComponent */}
+      <DebugComponent />
     </div>
   );
 }
