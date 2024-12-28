@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/util/classNames";
-import Image from "next/image";
 import React, {
   createContext,
   useState,
@@ -45,6 +44,7 @@ export const CardContainer = ({
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
   };
+
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
@@ -62,11 +62,20 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            "flex items-center justify-center relative transition-all duration-200 ease-linear",
+            "relative transition-all duration-200 ease-linear p-6 bg-transparent border border-secondary rounded-lg shadow-lg hover:shadow-xl group-hover:scale-105 group-hover:translate-y-[-2px] backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40",
             className
           )}
           style={{
             transformStyle: "preserve-3d",
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            border: "2px solid rgba(255, 255, 255, 0.4)",
+            borderRadius: "16px",
+            boxShadow: `
+              inset 0 0 10px rgba(255, 255, 255, 0.3),
+              0 4px 6px rgba(0, 0, 0, 0.1)
+            `,
           }}
         >
           {children}
@@ -86,7 +95,7 @@ export const CardBody = ({
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]",
+        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
         className
       )}
     >
@@ -137,7 +146,10 @@ export const CardItem = ({
   return (
     <Tag
       ref={ref}
-      className={cn("w-fit transition duration-200 ease-linear", className)}
+      className={cn(
+        "w-fit transition duration-200 ease-linear font-sans text-neutral-600 dark:text-neutral-200",
+        className
+      )}
       {...rest}
     >
       {children}
