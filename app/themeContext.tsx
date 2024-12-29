@@ -15,7 +15,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme); // Set theme from local storage or default to 'dark'
+    setTheme(savedTheme); // Set theme from local storage or default to 'light'
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
@@ -51,7 +51,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     return (
       <div
-        className="w-screen h-screen flex items-center justify-center relative"
+        className="w-screen min-h-screen flex items-center justify-center relative"
         style={{
           background: gradientColors,
           backgroundSize: "200% 200%",
@@ -93,13 +93,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div
-        className="w-screen h-screen"
+        className="w-screen min-h-screen"
         style={{
           background: theme === "light" ? "#FAF3E0" : "#1E293B", // Fallback background for static
           backgroundImage:
             theme === "light"
               ? "linear-gradient(135deg, #FAF3E0, #FFF8DC, #F5DEB3)" // gradient-light
               : "linear-gradient(135deg, #1E293B, #2D3748, #4A5568)", // gradient-dark
+          backgroundAttachment: "fixed", // Ensure background stays fixed
           transition: "background-image 0.3s ease, background-color 0.3s ease-in", // Smooth background fade
         }}
       >

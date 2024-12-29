@@ -18,22 +18,26 @@ export default function AboutMe() {
 
       <div className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12">
         <CardContainer
-          className="relative w-[600px] h-[800px] flex items-center justify-center"
-          containerClassName="w-[600px] h-[800px]"
+          className="relative w-[500px] h-[700px] flex items-center justify-center"
+          containerClassName="w-[500px] h-[700px]"
         >
-          <CardBody className="flex flex-col items-center text-center p-12 space-y-8">
+          <CardBody className="flex flex-col items-center text-center p-8 space-y-6">
             <CardItem translateZ={30}>
-              <h1 className="text-5xl font-bold">About Me</h1>
+            <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-6">About Me</h1>
             </CardItem>
             <CardItem translateZ={25}>
-              <p className="text-2xl text-zinc-300">
-                I'm a creative developer with a passion for interactive design.
+              <p className="text-xl text-zinc-300 leading-snug">
+                Hi! I'm Eduarda, an Informatics Engineer and Computer Science
+                student at Universidade do Porto.
               </p>
             </CardItem>
             <CardItem translateZ={20}>
-              <p className="text-xl text-zinc-400">
-                I enjoy building engaging user experiences and exploring the
-                latest in web technologies.
+              <p className="text-lg text-zinc-400 leading-relaxed">
+                I am a first-year student with strong social skills and
+                leadership capabilities. My commitment to academic excellence
+                reflects my passion for technology. I am dedicated to using my
+                skills and knowledge to make a positive impact on my field and
+                society.
               </p>
             </CardItem>
           </CardBody>

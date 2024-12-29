@@ -2,11 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import { Navigation } from "../components/nav";
 import ContactForm from "../components/ui/contactForm";
-import { useTheme } from "../themeContext"; // Assuming a theme context for toggling
+import { useTheme } from "../themeContext";
+import { Card } from "../components/ui/card"; // Import the Card component
 
 const socials = [
   {
@@ -40,47 +40,30 @@ const ContactPage: React.FC = () => {
 
   return (
     <div
-      className={`relative min-h-screen flex flex-col items-center justify-center text-base-content ${theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-        }`}
+      className={`relative min-h-screen flex flex-col items-center justify-center text-base-content ${
+        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
+      }`}
     >
       {/* Include Navigation */}
       <Navigation />
 
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12 relative z-10"
-      >
-        <motion.div
-          className="p-10 w-full max-w-4xl relative rounded-lg shadow-lg animate-fade-in-up"
-          style={{
-            background: "transparent",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            border: "2px solid rgba(255, 255, 255, 0.4)",
-            borderRadius: "16px",
-            boxShadow: `
-              inset 0 0 10px rgba(255, 255, 255, 0.3),
-              0 4px 6px rgba(0, 0, 0, 0.1)
-            `,
-          }}
-        >
+      <div className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12 relative z-10">
+        {/* Using Card Component */}
+        <Card>
           {/* Title Section */}
-          <motion.div className="text-center mb-12 animate-fade-in-up">
-            <h1 className="text-4xl sm:text-5xl font-bold text-center text-primary mb-12">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-12">
               Contact
             </h1>
-          </motion.div>
+          </div>
 
           {/* Content Grid */}
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-12 relative animate-fade-in-up pr-0 sm:pr-8 "
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-12 relative">
             {/* Vertical Divider */}
             <div className="hidden md:block absolute inset-y-0 left-1/2 transform -translate-x-1/2 border-l-2 border-secondary"></div>
 
             {/* Left Side (Profile Info) */}
-            <motion.div className="space-y-8 flex flex-col items-center justify-center">
+            <div className="space-y-8 flex flex-col items-center justify-center">
               <div className="relative flex justify-center">
                 <div className="avatar">
                   <div className="w-64 h-64 rounded-lg shadow-lg overflow-hidden">
@@ -97,7 +80,7 @@ const ContactPage: React.FC = () => {
                   Eduarda Magno
                 </h2>
                 <p className="text-secondary text-sm mt-4 text-center">
-                  I am an 18 year old student, studying in the 2º year of
+                  I am an 18-year-old student, studying in the 2nd year of
                   Informatics Engineering and Computer Science at the University
                   of Porto.
                 </p>
@@ -113,23 +96,23 @@ const ContactPage: React.FC = () => {
                     key={s.href}
                     href={s.href}
                     target="_blank"
-                    className="flex flex-col items-center gap-2 group duration-500"
+                    className="flex flex-col items-center gap-2 duration-500"
                   >
-                    <span className="flex items-center justify-center text-secondary transition-colors duration-300 ease-in-out group-hover:text-primary drop-shadow-md">
+                    <span className="flex items-center justify-center text-secondary transition-colors duration-300 ease-in-out hover:text-primary drop-shadow-md">
                       {s.icon}
                     </span>
                   </Link>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Right Side (Contact Form) */}
-            <motion.div className="pl-0 sm:pl-8 flex justify-center items-center">
+            <div className="pl-0 sm:pl-8 flex justify-center items-center">
               <ContactForm />
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+            </div>
+          </div>
+        </Card>
+      </div>
     </div>
   );
 };

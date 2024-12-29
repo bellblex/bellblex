@@ -62,14 +62,14 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            "relative transition-all duration-200 ease-linear p-6 bg-transparent border border-secondary rounded-lg shadow-lg hover:shadow-xl group-hover:scale-105 group-hover:translate-y-[-2px] backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40",
+            "relative transition-all duration-200 ease-linear p-6 border border-secondary rounded-lg shadow-lg hover:shadow-xl group-hover:scale-105 group-hover:translate-y-[-2px] backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40",
             className
           )}
           style={{
             transformStyle: "preserve-3d",
-            background: "rgba(255, 255, 255, 0.1)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
+            background: "transparent", // Fully transparent background
+            backdropFilter: "blur(0px)", // Optional: no blur effect
+            WebkitBackdropFilter: "blur(0px)", // Optional: no blur effect
             border: "2px solid rgba(255, 255, 255, 0.4)",
             borderRadius: "16px",
             boxShadow: `

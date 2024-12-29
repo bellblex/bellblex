@@ -1,39 +1,25 @@
 import { cn } from "@/util/classNames";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { CardContainer, CardBody, CardItem } from "./3dCard";
+import React from "react";
+import { Card } from "./card"; // Import the Card component
 
 export const BentoGrid = ({
-    className,
-    children,
-  }: {
-    className?: string;
-    children?: React.ReactNode;
-  }) => {
-    const containerVariants = {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.2,
-        },
-      },
-    };
-  
-    return (
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className={cn(
-          "grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto max-w-7xl mx-auto",
-          className
-        )}
-      >
-        {children}
-      </motion.div>
-    );
-  };  
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};
 
 export const BentoGridItem = ({
   className,
@@ -49,39 +35,33 @@ export const BentoGridItem = ({
   icon?: React.ReactNode;
 }) => {
   return (
-    <CardContainer
-      className={cn(
-        "w-full h-full transition duration-200 ease-linear group-hover:scale-105 group-hover:translate-y-[-2px]"
-      )}
-    >
-      {header && (
-        <CardItem
-          className="w-full h-32 rounded-t-lg overflow-hidden"
-          translateZ={20}
-        >
-          {header}
-        </CardItem>
-      )}
-      {icon && (
-        <CardItem
-          className="group-hover:translate-x-2 transition duration-200 flex justify-center"
-          translateZ={15}
-        >
-          {icon}
-        </CardItem>
-      )}
-      <CardItem
-        className={`font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2`}
-        translateZ={10}
+    <Card>
+      <div
+        className={cn(
+          "flex flex-col space-y-4",
+          className
+        )}
       >
-        {title}
-      </CardItem>
-      <CardItem
-        className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300"
-        translateZ={5}
-      >
-        {description}
-      </CardItem>
-    </CardContainer>
+        {/* Header (e.g., image) */}
+        {header && <div className="w-full h-32 rounded-t-lg overflow-hidden">{header}</div>}
+
+        {/* Icon */}
+        {icon && <div className="mb-4">{icon}</div>}
+
+        {/* Title */}
+        {title && (
+          <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200">
+            {title}
+          </div>
+        )}
+
+        {/* Description */}
+        {description && (
+          <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
+            {description}
+          </div>
+        )}
+      </div>
+    </Card>
   );
 };
