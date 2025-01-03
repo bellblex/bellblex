@@ -23,11 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-      <head>
-      </head>
-      <body>
+      <head></head>
+      <body className="min-h-screen flex flex-col overflow-y-auto">
         <ThemeProvider>
-          {children}
+          <div className="flex-grow flex flex-col">
+            {children}
+          </div>
         </ThemeProvider>
         <AnalyticsWrapper />
       </body>

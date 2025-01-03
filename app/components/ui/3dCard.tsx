@@ -70,7 +70,8 @@ export const CardContainer = ({
             background: "transparent", // Fully transparent background
             backdropFilter: "blur(0px)", // Optional: no blur effect
             WebkitBackdropFilter: "blur(0px)", // Optional: no blur effect
-            border: "2px solid rgba(255, 255, 255, 0.4)",
+            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+            border: "2px solid rgba(128, 128, 128, 0.5)", // Gray border with transparency            
             borderRadius: "16px",
             boxShadow: `
               inset 0 0 10px rgba(255, 255, 255, 0.3),

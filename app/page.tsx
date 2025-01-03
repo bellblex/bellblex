@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import Particles from "./components/ui/particles";
 import { useTheme } from "./themeContext";
+import FluidCursor from "./components/ui/fluidCursor";
 
 const navigation = [
   { name: "About Me", href: "/maintenance" },
@@ -19,6 +20,7 @@ export default function Home() {
       className={`flex flex-col items-center justify-center w-screen h-screen overflow-hidden ${theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
         }`}
     >
+      <FluidCursor/>
       {/* Navigation Bar */}
       <nav className="my-16 animate-fade-in flex items-center justify-center gap-8">
         <ul className="flex items-center justify-center gap-4">

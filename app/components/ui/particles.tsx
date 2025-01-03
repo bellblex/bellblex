@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { useMousePosition } from "@/util/mouse";
+import { useMousePosition } from "@/util/mouse"; // Ensure this imports the corrected hook
 import { useTheme } from "../../themeContext";
 
 interface ParticlesProps {
@@ -24,7 +24,7 @@ export default function Particles({
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const context = useRef<CanvasRenderingContext2D | null>(null);
   const circles = useRef<any[]>([]);
-  const mousePosition = useMousePosition();
+  const { mouseState } = useMousePosition(); // Extract mouseState from hook
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
@@ -45,9 +45,9 @@ export default function Particles({
 
   useEffect(() => {
     if (theme === "dark") {
-      onMouseMove();
+      updateMousePosition();
     }
-  }, [mousePosition.x, mousePosition.y, theme]);
+  }, [mouseState.x, mouseState.y, theme]);
 
   const initCanvas = () => {
     if (theme !== "dark") return; // Skip initialization if not in dark mode
@@ -68,12 +68,12 @@ export default function Particles({
     }
   };
 
-  const onMouseMove = () => {
-    if (canvasRef.current) {
+  const updateMousePosition = () => {
+    if (canvasRef.current && mouseState.x !== null && mouseState.y !== null) {
       const rect = canvasRef.current.getBoundingClientRect();
       const { w, h } = canvasSize.current;
-      const x = mousePosition.x - rect.left - w / 2;
-      const y = mousePosition.y - rect.top - h / 2;
+      const x = mouseState.x - rect.left - w / 2;
+      const y = mouseState.y - rect.top - h / 2;
       const inside = x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2;
       if (inside) {
         mouse.current.x = x;
@@ -93,7 +93,7 @@ export default function Particles({
     dx: number;
     dy: number;
     magnetism: number;
-    binaryCharacter: string; // Add this field
+    binaryCharacter: string;
   };
 
   const circleParams = (): Circle => {
@@ -122,7 +122,7 @@ export default function Particles({
       dx,
       dy,
       magnetism,
-      binaryCharacter, // Store the binary character
+      binaryCharacter,
     };
   };
 

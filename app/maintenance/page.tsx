@@ -2,10 +2,14 @@
 import React from "react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
+import FluidCursor from "../components/ui/fluidCursor";
+
 
 export default function MaintenancePage() {
   return (
     <div className="min-h-screen bg-base-100 text-base-content flex flex-col items-center justify-center">
+      <FluidCursor />
+
       {/* Include Navigation */}
       <Navigation />
 

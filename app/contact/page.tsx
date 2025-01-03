@@ -7,6 +7,7 @@ import { Navigation } from "../components/nav";
 import ContactForm from "../components/ui/contactForm";
 import { useTheme } from "../themeContext";
 import { Card } from "../components/ui/card"; // Import the Card component
+import FluidCursor from "../components/ui/fluidCursor";
 
 const socials = [
   {
@@ -44,6 +45,8 @@ const ContactPage: React.FC = () => {
         theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
       }`}
     >
+            <FluidCursor />
+
       {/* Include Navigation */}
       <Navigation />
 
