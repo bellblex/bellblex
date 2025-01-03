@@ -82,14 +82,6 @@ To balance my active mind with physical health, I enjoy playing futsal with frie
 
 ---
 
-## 📊 GitHub Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=bellblex&show_icons=true&theme=radical&title_color=pink)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=bellblex&layout=compact&theme=radical&title_color=pink)
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=bellblex&theme=radical&fire=pink)
-
----
-
 ## 🤝 Let's Connect
 
 <p align="left">
