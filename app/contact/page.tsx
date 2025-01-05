@@ -5,9 +5,7 @@ import Link from "next/link";
 import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import { Navigation } from "../components/nav";
 import ContactForm from "../components/ui/contactForm";
-import { useTheme } from "../themeContext";
-import { Card } from "../components/ui/card"; // Import the Card component
-import FluidCursor from "../components/ui/fluidCursor";
+import { Card } from "../components/ui/card";
 
 const socials = [
   {
@@ -37,35 +35,22 @@ const socials = [
 ];
 
 const ContactPage: React.FC = () => {
-  const { theme } = useTheme();
-
   return (
-    <div
-      className={`relative min-h-screen flex flex-col items-center justify-center text-base-content ${
-        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-      }`}
-    >
-            <FluidCursor />
-
+    <div className="relative min-h-screen flex flex-col items-center justify-center">
       {/* Include Navigation */}
       <Navigation />
 
       <div className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12 relative z-10">
-        {/* Using Card Component */}
         <Card>
-          {/* Title Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-12">
               Contact
             </h1>
           </div>
 
-          {/* Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-12 relative">
-            {/* Vertical Divider */}
             <div className="hidden md:block absolute inset-y-0 left-1/2 transform -translate-x-1/2 border-l-2 border-secondary"></div>
 
-            {/* Left Side (Profile Info) */}
             <div className="space-y-8 flex flex-col items-center justify-center">
               <div className="relative flex justify-center">
                 <div className="avatar">
@@ -92,7 +77,6 @@ const ContactPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Social Icons */}
               <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6 md:space-x-8 mt-8">
                 {socials.map((s) => (
                   <Link
@@ -109,7 +93,6 @@ const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Side (Contact Form) */}
             <div className="pl-0 sm:pl-8 flex justify-center items-center">
               <ContactForm />
             </div>

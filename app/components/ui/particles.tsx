@@ -107,8 +107,6 @@ export default function Particles({
     const dx = (Math.random() - 0.5) * 0.2;
     const dy = (Math.random() - 0.5) * 0.2;
     const magnetism = 0.1 + Math.random() * 4;
-
-    // Assign either '0' or '1' randomly
     const binaryCharacter = Math.random() > 0.5 ? "1" : "0";
 
     return {
@@ -132,11 +130,8 @@ export default function Particles({
         circle;
       context.current.translate(translateX, translateY);
 
-      // Set font size and style for binary characters
-      context.current.font = `${size * 10}px Arial`; // Adjust font size based on the circle's size
+      context.current.font = `${size * 10}px Arial`;
       context.current.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-
-      // Draw the binary character at the particle's position
       context.current.fillText(binaryCharacter, x, y);
 
       context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -167,7 +162,7 @@ export default function Particles({
   };
 
   const animate = () => {
-    if (theme !== "dark") return; // Stop animation in light mode
+    if (theme !== "dark") return;
     clearContext();
     circles.current.forEach((circle: Circle, i: number) => {
       const edge = [

@@ -6,7 +6,6 @@ import { useTheme } from "../themeContext";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid"; // Use BentoGrid and BentoGridItem
 import { projects } from "./BentoItemsData";
 import Image from "next/image";
-import FluidCursor from "../components/ui/fluidCursor";
 
 
 export default function Projects() {
@@ -18,7 +17,6 @@ export default function Projects() {
         theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
       }`}
     >
-      <FluidCursor/>
       <Navigation />
       <div className="container mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-center text-primary mb-12">
