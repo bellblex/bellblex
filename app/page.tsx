@@ -8,7 +8,7 @@ import FluidCursor from "./components/ui/fluidCursor";
 
 const navigation = [
   { name: "About Me", href: "/about" },
-  { name: "Projects", href: "/projects" },
+  { name: "Projects", href: "/maintenance" },
   { name: "Contact", href: "/contact" },
 ];
 
