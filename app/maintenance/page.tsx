@@ -6,7 +6,7 @@ import { Navigation } from "../components/nav";
 
 export default function MaintenancePage() {
   return (
-    <div className="min-h-screen bg-base-100 text-base-content flex flex-col items-center justify-center">
+    <div className="min-h-screen text-base-content flex flex-col items-center justify-center">
       {/* Include Navigation */}
       <Navigation />
 

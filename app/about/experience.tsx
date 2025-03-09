@@ -2,7 +2,7 @@ const experience = [
     {
       date: "06.2023 – Present",
       title: "Logistics Team Member",
-      organization: "ENCONTRO NACIONAL DE ESTUDANTES DE ENGENHARIA INFORMÁTICA (ENEI) – PORTUGAL",
+      organization: "ENEI – Encontro Nacional de Estudantes de Informática",
       description: [
         "Securing partnerships for meal services and other logistics-related needs during the event.",
         "Enhancing coordination and communication skills in a hands-on environment.",
@@ -11,8 +11,8 @@ const experience = [
     },
     {
       date: "06.2023 – Present",
-      title: "Member, Cooperation and Social Action Department",
-      organization: "AEFEUP – PORTUGAL",
+      title: "Member of the Cooperation and Social Action Department",
+      organization: "AEFEUP – Associação de Estudantes da Faculdade de Engenharia da Universidade do Porto",
       description: [
         "Initially part of the Advertisement and Design Department, later transitioned to the Cooperation Department.",
         "Organizing both internal and external events for AEFEUP, including initiatives supporting Erasmus students and other student-focused programs.",
@@ -21,19 +21,19 @@ const experience = [
     },
     {
       date: "09.2023 – Present",
-      title: "Member, Communications & Image Departments",
-      organization: "NIAFEUP – PORTUGAL",
+      title: "Member of Communications & Image Departments",
+      organization: "NIAEFEUP – Núcleo de Informática da Associação de Estudantes da Faculdade de Engenharia da Universidade do Porto",
       description: [
         "Contributed to the development of the Uni Mobile App and the AEFEUP website, working with modern technologies in hands-on environments.",
         "Supporting the Communications Department by promoting events, projects, and initiatives through social media, posters, emails, and school visits.",
-        "Involved in producing graphic content and managing the visual identity of NIAFEUP, ensuring UI/UX of projects aligns with design standards.",
+        "Involved in producing graphic content and managing the visual identity of NIAEFEUP, ensuring UI/UX of projects aligns with design standards.",
         "Assisting with social media content creation and development of course-related merchandise."
       ]
     },
     {
       date: "09.2023 – 10.2024",
       title: "1st Year Student Body Representative",
-      organization: "UNIVERSITY OF PORTO – PORTUGAL",
+      organization: "Faculdade de Engenharia da Universidade do Porto",
       description: [
         "Elected to represent a cohort of approximately 300 students, fostering communication between students and professors.",
         "Ensured students’ voices were heard, concerns addressed, and actively participated in discussions and initiatives to enhance the academic experience.",

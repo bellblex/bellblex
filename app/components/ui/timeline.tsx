@@ -68,14 +68,14 @@ const Timeline = () => {
               `,
             }}
           >
-            <time className="font-mono italic">{exp.date}</time>
-            <div className="text-lg font-black">{exp.title}</div>
-            <div className="text-sm font-semibold">{exp.organization}</div>
-            <ul className="list-disc ml-4">
+            <time className="font-mono italic text-secondary">{exp.date}</time>
+            <div className="text-lg font-black text-primary">{exp.title}</div>
+            <div className="text-sm font-semibold text-primary">{exp.organization}</div> <br />
+            <div className="ml-4 text-secondary">
               {exp.description.map((desc, i) => (
-                <li key={i}>{desc}</li>
+                <p key={i} className="mb-2">{desc}</p>
               ))}
-            </ul>
+            </div>
           </div>
           <hr className="timeline-line scale-y-0 transition-transform duration-1000 ease-in-out origin-top border-gray-500" />
         </li>

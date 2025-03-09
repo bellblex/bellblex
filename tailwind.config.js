@@ -26,17 +26,9 @@ module.exports = {
 		  },
       backgroundImage: {
         "gradient-light":
-          "linear-gradient(135deg, #FAF3E0, #FFF8DC, #F5DEB3)",
+        "linear-gradient(135deg, #FAF3E0, #FFF8DC, #F5DEB3, #D4E9FF)",        
         "gradient-dark":
           "linear-gradient(135deg, #1E293B, #2D3748, #4A5568)", 
-      },
-      colors: {
-		"light-bg": "#FAF3E0", // Light theme background color
-        "dark-bg": "#1E293B", // Dark theme background color
-        "star-light": "#FFD700", // Gold-like star color
-        "star-dark": "#FFFFFF", // White stars
-        "light-accent": "#F5DEB3", // Warm beige
-        "dark-accent": "#4A5568", // Subtle dark gray
       },
 	  animation: {
         "fade-in": "fade-in 1.5s ease-in-out forwards",
