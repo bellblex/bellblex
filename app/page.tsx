@@ -89,25 +89,17 @@ export default function Home() {
         <h2 className="text-sm text-zinc-500 ">
           I am an Informatics Engineer and Computer Scientist Student at{" "}
           <Link
-            href="https://goo.gl/maps/4ZkNnFojigT2"
+            href="https://maps.app.goo.gl/p8ZXkACAFMsdgXP29"
             target="_blank"
+            rel="noopener noreferrer"
             className="duration-500 hover:text-zinc-300"
           >
-            Universidade do Porto
+            Faculdade de Engenharia da Universidade do Porto
           </Link>
+
           .
         </h2>
-        <h2 className="text-sm text-zinc-500 ">
-          You can download my resume{" "}
-          <Link
-            href="/Resume.pdf"
-            download
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            here
-          </Link>
-          .
-        </h2>
+       
       </div>
     </div>
   );
