@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { LinkPreview } from "@/app/components/ui/link-preview";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "./themeContext";
 import Particles from "./components/ui/particles";
@@ -86,21 +87,19 @@ export default function Home() {
       </h1>
 
       <div className="my-16 text-center animate-fade-in px-8">
-        <h2 className="text-sm text-zinc-500 ">
-          I am an Informatics Engineer and Computer Scientist Student at{" "}
-          <Link
-            href="https://maps.app.goo.gl/p8ZXkACAFMsdgXP29"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="duration-500 hover:text-zinc-300"
-          >
-            Faculdade de Engenharia da Universidade do Porto
-          </Link>
+      <h2 className="text-sm text-zinc-500 ">
+        I am an Informatics Engineer and Computer Scientist Student at{" "}
+        
+        {/* Wrapped in Link to keep it clickable */}
 
-          .
-        </h2>
-       
-      </div>
+            <LinkPreview url="https://www.up.pt/feup/en/" className="duration-500 hover:text-zinc-300 inline-block"
+            >
+                <p className="text-sm text-zinc-500">
+                  Faculdade de Engenharia da Universidade do Porto.
+                </p>
+            </LinkPreview>
+          </h2>
+        </div>
     </div>
   );
 }

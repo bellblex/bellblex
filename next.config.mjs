@@ -5,6 +5,11 @@ const nextConfig = {
   experimental: {
     mdxRs: true, 
   },
+  images: {
+    domains: [
+      "api.microlink.io", // Microlink Image Preview
+    ],
+  },
 };
 
 export default nextConfig;
