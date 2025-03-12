@@ -19,7 +19,7 @@ const useFluidCursor = () => {
       PRESSURE_ITERATIONS: 20,
       CURL: 3,
       SPLAT_RADIUS: 0.2,
-      SPLAT_FORCE: 6000,
+      SPLAT_FORCE: 2000,
       SHADING: true,
       COLOR_UPDATE_SPEED: 10,
       PAUSED: false,
