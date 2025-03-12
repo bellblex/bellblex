@@ -15,15 +15,14 @@ const navigation = [
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
-  const [showFluidCursor, setShowFluidCursor] = useState(false); // State to control FluidCursor visibility
+  const [showFluidCursor, setShowFluidCursor] = useState(false); 
 
   useEffect(() => {
-    // Delay FluidCursor appearance
     const timer = setTimeout(() => {
       setShowFluidCursor(true);
-    }, 1000); // Adjust delay (ms) to match your name animation duration
+    }, 1000); 
 
-    return () => clearTimeout(timer); // Cleanup timeout on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -32,7 +31,6 @@ export default function Home() {
         theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
       }`}
     >
-      {/* Render FluidCursor or Particles based on theme */}
       {theme === "light" && showFluidCursor && <FluidCursor />}
       {theme === "dark" && <Particles className="absolute inset-0" quantity={100} />}
 

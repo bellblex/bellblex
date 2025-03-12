@@ -3,7 +3,7 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/image";
 import { encode } from "qss";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ type LinkPreviewProps = {
   width?: number;
   height?: number;
   quality?: number;
-  layout?: "intrinsic" | "responsive" | "fill" | "fixed";
+  layout?: string;
 } & (
   | { isStatic: true; imageSrc: string }
   | { isStatic?: false; imageSrc?: never }
@@ -29,18 +29,12 @@ export const LinkPreview = ({
   width = 200,
   height = 125,
   quality = 50,
-  layout = "intrinsic",
+  layout = "fixed",
   isStatic = false,
   imageSrc = "",
 }: LinkPreviewProps) => {
-  const { theme } = useTheme(); // Get theme from context
-  const [isMounted, setIsMounted] = useState(false);
-  const [isOpen, setOpen] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
+  const { theme } = useTheme();
+  
   let src;
   if (!isStatic) {
     const params = encode({
@@ -48,7 +42,7 @@ export const LinkPreview = ({
       screenshot: true,
       meta: false,
       embed: "screenshot.url",
-      colorScheme: theme === "dark" ? "dark" : "light", // Change based on theme
+      colorScheme: theme === "dark" ? "dark" : "light",
       "viewport.isMobile": true,
       "viewport.deviceScaleFactor": 1,
       "viewport.width": width * 3,
@@ -59,26 +53,29 @@ export const LinkPreview = ({
     src = imageSrc;
   }
 
-  const boxStyles = `border rounded-lg p-2 shadow-lg 
-  ${theme === "dark" 
-    ? "bg-[#1E293B] border-[#1E293B] text-white"  // Dark mode
-    : "bg-[#FAF3E0] border-[#FAF3E0] text-black"  // Light mode
-  }`;
+  const [isOpen, setOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
   const translateX = useSpring(x, springConfig);
 
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const targetRect = event.currentTarget.getBoundingClientRect();
+  const handleMouseMove = (event: any) => {
+    const targetRect = event.target.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
     const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2;
     x.set(offsetFromCenter);
   };
 
+  // Apply DaisyUI theme colors dynamically
+  const boxStyles = `bg-base-100 text-primary`;
+
   return (
     <>
-      {/* Prevents hydration mismatch */}
       {isMounted && (
         <div className="hidden">
           <Image
@@ -86,8 +83,9 @@ export const LinkPreview = ({
             width={width}
             height={height}
             quality={quality}
-            priority
-            alt="hidden preview image"
+            layout={layout}
+            priority={true}
+            alt="hidden image"
           />
         </div>
       )}
@@ -95,13 +93,24 @@ export const LinkPreview = ({
       <HoverCardPrimitive.Root
         openDelay={50}
         closeDelay={100}
-        onOpenChange={(open) => setOpen(open)}
+        onOpenChange={(open) => {
+          setOpen(open);
+        }}
       >
-        <HoverCardPrimitive.Trigger onMouseMove={handleMouseMove} className={cn("cursor-pointer", className)}>
+        <HoverCardPrimitive.Trigger
+          onMouseMove={handleMouseMove}
+          className={cn("text-primary", className)}
+          href={url}
+        >
           {children}
         </HoverCardPrimitive.Trigger>
 
-        <HoverCardPrimitive.Content className="transform-gpu" side="bottom" align="center" sideOffset={10}>
+        <HoverCardPrimitive.Content
+          className="[transform-origin:var(--radix-hover-card-content-transform-origin)]"
+          side="bottom"
+          align="center"
+          sideOffset={10}
+        >
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -110,19 +119,30 @@ export const LinkPreview = ({
                   opacity: 1,
                   y: 0,
                   scale: 1,
-                  transition: { type: "spring", stiffness: 260, damping: 20 },
+                  transition: {
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                  },
                 }}
                 exit={{ opacity: 0, y: 20, scale: 0.6 }}
                 className={`shadow-xl rounded-xl ${boxStyles}`}
-                style={{ x: translateX }}
+                style={{
+                  x: translateX,
+                }}
               >
-                <Link href={url} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={url}
+                  className="block p-3 rounded-xl"
+                  style={{ fontSize: 0 }}
+                >
                   <Image
                     src={isStatic ? imageSrc : src}
                     width={width}
                     height={height}
                     quality={quality}
-                    priority
+                    layout={layout}
+                    priority={true}
                     className="rounded-lg"
                     alt="preview image"
                   />

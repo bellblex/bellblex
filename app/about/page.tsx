@@ -20,7 +20,7 @@ export default function AboutMe() {
               </h1>
             </CardItem>
             <CardItem translateZ={25}>
-              <p className="text-xl text-primary leading-snug text-left">
+              <p className="text-xl text-primary leading-snug">
                 Hi! I'm Eduarda, an Informatics Engineer and Computer Science student at Universidade do Porto.
               </p>
             </CardItem>
@@ -43,6 +43,7 @@ export default function AboutMe() {
               </p>
             </div>
           </CardItem>
+
           </CardBody>
         </CardContainer>
       </div>
