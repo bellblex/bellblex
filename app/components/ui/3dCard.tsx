@@ -23,38 +23,32 @@ export const CardContainer = ({
   containerClassName?: string;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMouseEntered, setIsMouseEntered] = useState(false);
+  const [isMouseEntered, setIsMouseEntered] = useState(false); // ✅ Define the state here
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
-    const { left, top, width, height } =
-      containerRef.current.getBoundingClientRect();
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 25;
     const y = (e.clientY - top - height / 2) / 25;
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseEnter = () => {
     setIsMouseEntered(true);
-    if (!containerRef.current) return;
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+  const handleMouseLeave = () => {
     setIsMouseEntered(false);
-    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    if (containerRef.current) {
+      containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    }
   };
 
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
-        className={cn(
-          "py-20 flex items-center justify-center",
-          containerClassName
-        )}
-        style={{
-          perspective: "1000px",
-        }}
+        className={cn("flex items-center justify-center w-full px-6", containerClassName)}
+        style={{ perspective: "1000px" }}
       >
         <div
           ref={containerRef}
@@ -62,21 +56,24 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            "relative transition-all duration-200 ease-linear p-6 border border-secondary rounded-lg shadow-lg hover:shadow-xl group-hover:scale-105 group-hover:translate-y-[-2px] backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40",
+            "relative transition-all duration-200 ease-linear p-6 border border-secondary rounded-lg shadow-lg hover:shadow-xl backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40",
             className
           )}
           style={{
             transformStyle: "preserve-3d",
-            background: "transparent", // Fully transparent background
-            backdropFilter: "blur(0px)", // Optional: no blur effect
-            WebkitBackdropFilter: "blur(0px)", // Optional: no blur effect
-            backgroundColor: "rgba(255, 255, 255, 0.1)", 
-            border: "2px solid rgba(128, 128, 128, 0.5)", // Gray border with transparency            
+            background: "transparent",
+            backdropFilter: "blur(0px)",
+            WebkitBackdropFilter: "blur(0px)",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            border: "2px solid rgba(128, 128, 128, 0.5)",
             borderRadius: "16px",
             boxShadow: `
               inset 0 0 10px rgba(255, 255, 255, 0.3),
               0 4px 6px rgba(0, 0, 0, 0.1)
             `,
+            width: "auto",
+            maxWidth: "80vw",
+            minHeight: "auto",
           }}
         >
           {children}
@@ -96,7 +93,7 @@ export const CardBody = ({
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
+        "w-full max-w-2xl p-6 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
         className
       )}
     >
@@ -104,6 +101,7 @@ export const CardBody = ({
     </div>
   );
 };
+
 
 export const CardItem = ({
   as: Tag = "div",
