@@ -1,14 +1,16 @@
 import { cn } from "@/util/classNames";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Card } from "./card"; // Import the Card component
 
-export const BentoGrid = ({
+export interface BentoGridProps {
+  className?: string;
+  children?: ReactNode;
+}
+
+export function BentoGrid({
   className,
   children,
-}: {
-  className?: string;
-  children?: React.ReactNode;
-}) => {
+}: BentoGridProps): JSX.Element {
   return (
     <div
       className={cn(
@@ -19,43 +21,39 @@ export const BentoGrid = ({
       {children}
     </div>
   );
-};
+}
+export interface BentoGridItemProps {
+  className?: string;
+  title?: ReactNode;
+  description?: ReactNode;
+  header?: ReactNode;
+  icon?: ReactNode;
+}
 
-export const BentoGridItem = ({
+export function BentoGridItem({
   className,
   title,
   description,
   header,
   icon,
-}: {
-  className?: string;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  header?: React.ReactNode;
-  icon?: React.ReactNode;
-}) => {
+}: BentoGridItemProps): JSX.Element {
   return (
     <Card>
-      <div
-        className={cn(
-          "flex flex-col space-y-4",
-          className
+      <div className={cn("flex flex-col space-y-4", className)}>
+        {header && (
+          <div className="w-full h-32 rounded-t-lg overflow-hidden">
+            {header}
+          </div>
         )}
-      >
-        {/* Header (e.g., image) */}
-        {header && <div className="w-full h-32 rounded-t-lg overflow-hidden">{header}</div>}
 
-        {/* Icon */}
         {icon && <div className="mb-4">{icon}</div>}
 
-        {/* Title */}
         {title && (
           <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200">
             {title}
           </div>
         )}
 
-        {/* Description */}
         {description && (
           <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
             {description}
@@ -64,4 +62,4 @@ export const BentoGridItem = ({
       </div>
     </Card>
   );
-};
+}

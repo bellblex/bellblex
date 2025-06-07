@@ -1,15 +1,19 @@
-import React, { PropsWithChildren } from "react";
+import React, { ReactNode } from "react";
 
-export const Card: React.FC<PropsWithChildren> = ({ children }) => {
+export interface CardProps {
+  children: ReactNode;
+}
+
+export function Card({ children }: CardProps): JSX.Element {
   return (
     <div
       className="relative overflow-hidden group"
       style={{
         WebkitBackdropFilter: "blur(10px)",
         backdropFilter: "blur(10px)",
-        border: "2px solid rgba(128, 128, 128, 0.5)", // Gray border with transparency        
+        border: "2px solid rgba(128, 128, 128, 0.5)",
         borderRadius: "16px",
-        backgroundColor: "rgba(255, 255, 255, 0.1)", 
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
         boxShadow: `
           inset 0 0 10px rgba(255, 255, 255, 0.3),
           0 4px 6px rgba(0, 0, 0, 0.1)
@@ -21,4 +25,4 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
       </div>
     </div>
   );
-};
+}

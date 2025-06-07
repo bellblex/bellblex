@@ -1,11 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import { Navigation } from "../components/nav";
 import ContactForm from "../components/ui/contactForm";
 import { Card } from "../components/ui/card";
+interface Social {
+  icon: ReactNode;
+  href: string;
+  label: string;
+  handle: string;
+}
 
 const socials = [
   {
@@ -34,10 +40,9 @@ const socials = [
   },
 ];
 
-const ContactPage: React.FC = () => {
+export default function ContactPage(): JSX.Element {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center">
-      {/* Include Navigation */}
       <Navigation />
 
       <div className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12 relative z-10">
@@ -97,10 +102,8 @@ const ContactPage: React.FC = () => {
               <ContactForm />
             </div>
           </div>
-        </Card>
+          </Card>
       </div>
     </div>
   );
-};
-
-export default ContactPage;
+}
