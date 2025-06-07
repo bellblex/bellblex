@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useLayoutEffect,
+  useState,
+  ReactNode,
+  FC,
+} from "react";
 
 type ThemeContextType = {
   theme: string;
@@ -9,22 +16,22 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [theme, setTheme] = useState<string>("dark"); // Default to 'light'
+export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const [theme, setTheme] = useState<string>(() => {
+    if (typeof window === "undefined") {
+      return "dark";
+    }
+    return localStorage.getItem("theme") || "dark";
+  });
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme); // Initialize theme from localStorage
-    document.documentElement.setAttribute("data-theme", savedTheme);
-  }, []);
+  useLayoutEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("theme", next);
   };
 
   return (
@@ -34,10 +41,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
+export const useTheme = (): ThemeContextType => {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
-  return context;
+  return ctx;
 };
