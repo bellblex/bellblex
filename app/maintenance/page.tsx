@@ -18,15 +18,7 @@ export default function MaintenancePage() {
       {/* Description */}
       <p className="text-sm text-base-content/70 mb-12 text-center px-4 animate-fade-in-up">
         This page is currently undergoing scheduled maintenance. Thank you for
-        your patience. Feel free to take a look at my{" "}
-        <Link
-          href="/Resume.pdf"
-          download
-          className="underline hover:text-primary"
-        >
-          resume
-        </Link>{" "}
-        as you wait.
+        your patience.
       </p>
     </div>
   );
