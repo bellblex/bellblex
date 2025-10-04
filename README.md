@@ -58,11 +58,6 @@ Beyond coding, I enjoy exploring new technologies, gaming, binge-watching series
 
 ## Let's Connect
 
-<p align="left">
-  <a href="https://eduardagmagno.com"><img src="https://img.shields.io/badge/Website-pink?style=for-the-badge&logo=www"></a>
-  <a href="https://www.linkedin.com/in/eduardagmagno/"><img src="https://img.shields.io/badge/LinkedIn-pink?style=for-the-badge&logo=linkedin"></a>
-  <a href="mailto:eduarda@magno.com"><img src="https://img.shields.io/badge/Email-pink?style=for-the-badge"></a>
-</p>
-
 _Visit my [portfolio website](https://eduardagmagno.com) for a closer look at my work and to get in touch!_
+
 
