@@ -1,46 +1,84 @@
 const experience = [
     {
-      date: "06.2023 – Present",
-      title: "Logistics Team Member",
-      organization: "ENEI – Encontro Nacional de Estudantes de Informática",
+      date: "Feb 2026 – Present",
+      title: "UI/UX & Front-End Intern",
+      organization: "GLS Germany IT – Portugal",
+      logo: "/logos/gls.png",
       description: [
-        "Securing partnerships for meal services and other logistics-related needs during the event.",
-        "Enhancing coordination and communication skills in a hands-on environment.",
+        "Auditing, documenting, and maintaining a company-wide design system.",
+        "Updating and aligning component libraries in Figma and Storybook, reducing discrepancies between design and front-end implementation.",
+        "Contributing to the strategic roadmap for scaling the design system and exploring AI-driven enhancements."
+      ]
+    },
+    {
+      date: "Sep 2023 – Present",
+      title: "Head Coordinator, Communications & Image",
+      organization: "NIAEFEUP",
+      logo: "/logos/niaefeup.png",
+      description: [
+        "Progressed from recruit to member and later Coordinator, attending weekly meetings and producing graphic content.",
+        "Leading a team of students in design and communications, shaping the organization's visual identity across multiple channels.",
+        "Contributing to cross-department initiatives and collaborative projects."
+      ]
+    },
+    {
+      date: "May 2025 – Oct 2025",
+      title: "Head Coordinator",
+      organization: "SINF 2025 – Week of Informatics",
+      logo: "/logos/sinf.png",
+      description: [
+        "Led interdepartmental coordination, ensuring smooth workflow between teams, aligning deliverables and deadlines, and supporting the successful execution of the programme."
+      ]
+    },
+    {
+      date: "Mar 2025",
+      title: "Student Representative",
+      organization: "Futurália, FIL – Lisbon International Fair",
+      logo: "/logos/futuralia.png",
+      description: [
+        "Represented FEUP at one of Portugal's largest education fairs, engaging with prospective students over five days."
+      ]
+    },
+    {
+      date: "Jun 2023 – Apr 2024",
+      title: "Logistics Team Member",
+      organization: "ENEI 2025 – National Meeting of Informatics Students",
+      logo: "/logos/enei.png",
+      description: [
+        "Securing partnerships for meal services and other logistics-related needs.",
         "Contributing directly to the success of the event by ensuring smooth operational execution."
       ]
     },
     {
-      date: "06.2023 – Present",
-      title: "Member of the Cooperation and Social Action Department",
-      organization: "AEFEUP – Associação de Estudantes da Faculdade de Engenharia da Universidade do Porto",
+      date: "Jun 2023 – Present",
+      title: "Cooperation & Social Action Department",
+      organization: "AEFEUP",
+      logo: "/logos/aefeup.png",
       description: [
         "Initially part of the Advertisement and Design Department, later transitioned to the Cooperation Department.",
-        "Organizing both internal and external events for AEFEUP, including initiatives supporting Erasmus students and other student-focused programs.",
-        "Facilitating communication between AEFEUP’s student groups (núcleos) and analyzing student feedback to improve services and activities."
+        "Organizing internal and external events, including initiatives supporting Erasmus students.",
+        "Facilitating communication between AEFEUP's student groups and analyzing student feedback."
       ]
     },
     {
-      date: "09.2023 – Present",
-      title: "Member of Communications & Image Departments",
-      organization: "NIAEFEUP – Núcleo de Informática da Associação de Estudantes da Faculdade de Engenharia da Universidade do Porto",
+      date: "Jun 2023 – Present",
+      title: "Degree Monitoring Committee",
+      organization: "FEUP – Faculty of Engineering, University of Porto",
+      logo: "/logos/feup.png",
       description: [
-        "Contributed to the development of the Uni Mobile App and the AEFEUP website, working with modern technologies in hands-on environments.",
-        "Supporting the Communications Department by promoting events, projects, and initiatives through social media, posters, emails, and school visits.",
-        "Involved in producing graphic content and managing the visual identity of NIAEFEUP, ensuring UI/UX of projects aligns with design standards.",
-        "Assisting with social media content creation and development of course-related merchandise."
+        "Contributing to curriculum improvement through regular meetings with faculty and student representatives."
       ]
     },
     {
-      date: "09.2023 – 10.2024",
+      date: "Sep 2023 – Oct 2024",
       title: "1st Year Student Body Representative",
-      organization: "Faculdade de Engenharia da Universidade do Porto",
+      organization: "FEUP – Faculty of Engineering, University of Porto",
+      logo: "/logos/feup.png",
       description: [
-        "Elected to represent a cohort of approximately 300 students, fostering communication between students and professors.",
-        "Ensured students’ voices were heard, concerns addressed, and actively participated in discussions and initiatives to enhance the academic experience.",
-        "Balanced advocacy responsibilities with academic and extracurricular commitments, developing resilience, teamwork, and leadership skills."
+        "Elected to represent a cohort of ~300 students, fostering communication between students and professors.",
+        "Balanced advocacy responsibilities with academic and extracurricular commitments."
       ]
     }
   ];
-  
+
   export default experience;
-  

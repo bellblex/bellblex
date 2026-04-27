@@ -1,11 +1,11 @@
-"use client";
-
 import "../global.css";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
+import { ReactNode } from "react";
 import AnalyticsWrapper from "./components/analytics";
-import { ThemeProvider, useTheme } from "./themeContext";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "./themeContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import ThemeWrapper from "./components/ThemeWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,7 +17,7 @@ const calSans = LocalFont({
   variable: "--font-calsans",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head></head>
@@ -31,19 +31,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SpeedInsights />
       </body>
     </html>
-  );
-}
-
-function ThemeWrapper({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-
-  return (
-    <div
-      className={`min-h-screen w-screen ${
-        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-      }`}
-    >
-      {children}
-    </div>
   );
 }

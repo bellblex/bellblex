@@ -19,30 +19,12 @@ export default function AboutMe() {
                 About Me
               </h1>
             </CardItem>
-            <CardItem translateZ={25}>
-              <p className="text-xl text-primary leading-snug">
-                Hi! I'm Eduarda, an Informatics Engineer and Computer Science student at Universidade do Porto.
-              </p>
-            </CardItem>
+
             <CardItem translateZ={20}>
-            <div className="text-lg text-secondary leading-relaxed break-words text-left space-y-6">
-              <p>
-                With a strong foundation in Computer Informatics Engineering, I have developed a versatile skill set that enables me to navigate both technical and creative domains. My academic journey, coupled with hands-on experience, has shaped my problem-solving abilities, adaptability, and leadership skills, allowing me to thrive in both collaborative and independent environments.
-              </p>
-
-              <p>
-                Beyond academics, I have actively contributed to student organizations such as AEFEUP, NIAFEUP, and ENEI, where I have taken on key roles in event organization, social impact initiatives, and digital content creation. These experiences have strengthened my ability to coordinate projects, foster community engagement, and communicate effectively in diverse settings.
-              </p>
-
-              <p>
-                Driven by my passion for technology and innovation, I continuously explore emerging trends such as low-level programming, computer architecture, and database management, as well as advancements in big data analytics, blockchain, IoT, and machine learning. My interest in systems optimization and data-driven solutions fuels my motivation to develop efficient, scalable, and high-performance applications.
-              </p>
-
-              <p>
-                I am committed to continuous learning and professional growth, always seeking new challenges that allow me to expand my expertise and make a positive impact in both my field and society.
-              </p>
-            </div>
-          </CardItem>
+              <div className="text-lg text-secondary leading-relaxed break-words text-left space-y-6">
+                I'm Eduarda, a final-year CS student at FEUP with a broad foundation spanning software development, systems and infrastructure, data and applications, and applied computing, and a complementary focus on UI/UX design. I currently intern at GLS Germany IT working on design systems and lead the Communications and Image department at NIAEFEUP. When I'm not coding or designing, I'm probably drawing, gaming, or swimming.           
+              </div>
+            </CardItem>
 
           </CardBody>
         </CardContainer>

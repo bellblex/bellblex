@@ -1,83 +1,77 @@
-import React, { useEffect, useRef } from "react";
+"use client";
+
+import React, { useEffect } from "react";
+import Image from "next/image";
 import experience from "@/app/about/experience";
 import { cn } from "@/util/classNames";
 
 const Timeline = () => {
-  const timelineRef = useRef(null);
-
   useEffect(() => {
     const handleScroll = () => {
-      const elements = document.querySelectorAll(".timeline-item");
-      const lines = document.querySelectorAll(".timeline-line");
-
-      elements.forEach((el) => {
+      document.querySelectorAll(".timeline-item").forEach((el) => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.75) {
+        if (rect.top < window.innerHeight * 0.85) {
           el.classList.add("opacity-100", "translate-y-0");
-          el.classList.remove("opacity-0", "translate-y-10");
-        }
-      });
-
-      lines.forEach((line) => {
-        const rect = line.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.9) {
-          line.classList.add("scale-y-100");
-          line.classList.remove("scale-y-0");
+          el.classList.remove("opacity-0", "translate-y-4");
         }
       });
     };
-
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Run once on mount to show already visible elements
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <ul ref={timelineRef} className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+    <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
       {experience.map((exp, index) => (
-        <li key={index} className="timeline-item opacity-0 translate-y-10 transition-all duration-700 ease-in-out">
+        <li key={index} className="timeline-item opacity-0 translate-y-4 transition-all duration-500 ease-out">
+          {index !== 0 && <hr className="border-gray-500/40" />}
+
+          {/* Dot */}
           <div className="timeline-middle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
-          <div
-            className={cn(
-              `timeline-${index % 2 === 0 ? "start" : "end"} relative transition-all duration-200 ease-linear p-6 border border-secondary rounded-lg shadow-lg hover:shadow-xl group-hover:scale-105 group-hover:translate-y-[-2px] backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40`
-            )}
-            style={{
-              transformStyle: "preserve-3d",
-              background: "transparent",
-              backdropFilter: "blur(0px)",
-              WebkitBackdropFilter: "blur(0px)",
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              border: "2px solid rgba(128, 128, 128, 0.5)",
-              borderRadius: "16px",
-              boxShadow: `
-                inset 0 0 10px rgba(255, 255, 255, 0.3),
-                0 4px 6px rgba(0, 0, 0, 0.1)
-              `,
-            }}
-          >
-            <time className="font-mono italic text-secondary">{exp.date}</time>
-            <div className="text-lg font-black text-primary">{exp.title}</div>
-            <div className="text-sm font-semibold text-primary">{exp.organization}</div> <br />
-            <div className="ml-4 text-secondary">
-              {exp.description.map((desc, i) => (
-                <p key={i} className="mb-2">{desc}</p>
-              ))}
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-white/10 flex items-center justify-center flex-shrink-0">
+              {exp.logo ? (
+                <Image
+                  src={exp.logo}
+                  alt={exp.organization}
+                  width={32}
+                  height={32}
+                  className="object-contain w-full h-full"
+                />
+              ) : (
+                <span className="text-[10px] font-bold text-secondary uppercase">
+                  {exp.organization.slice(0, 2)}
+                </span>
+              )}
             </div>
           </div>
-          <hr className="timeline-line scale-y-0 transition-transform duration-1000 ease-in-out origin-top border-gray-500" />
+
+          {/* Card */}
+          <div
+            className={cn(
+              index % 2 === 0 ? "timeline-start" : "timeline-end",
+              "mb-4 rounded-xl px-4 py-3 max-w-sm"
+            )}
+            style={{
+              backgroundColor: "rgba(255,255,255,0.07)",
+              border: "1.5px solid rgba(128,128,128,0.35)",
+              boxShadow: "inset 0 0 8px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.1)",
+            }}
+          >
+            <time className="text-xs italic text-secondary/70">{exp.date}</time>
+            <p className="text-sm font-bold text-primary leading-snug">{exp.title}</p>
+            <p className="text-xs font-medium text-secondary mb-2">{exp.organization}</p>
+            <ul className="space-y-1">
+              {exp.description.map((desc, i) => (
+                <li key={i} className="text-xs text-secondary/80 leading-relaxed flex gap-1.5">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-secondary/40 flex-shrink-0" />
+                  <span>{desc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <hr className="border-gray-500/40" />
         </li>
       ))}
     </ul>
