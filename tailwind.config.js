@@ -31,7 +31,7 @@ module.exports = {
   			]
   		},
   		backgroundImage: {
-  			'gradient-light': 'linear-gradient(135deg, #FAF3E0, #FFF8DC, #F5DEB3, #D4E9FF)',
+  			'gradient-light': 'linear-gradient(160deg, #7DD3FC, #BAE6FD, #E0F2FE, #FEFCE8)',
   			'gradient-dark': 'linear-gradient(135deg, #1E293B, #2D3748, #4A5568)'
   		},
   		animation: {
@@ -124,7 +124,7 @@ module.exports = {
           secondary: "#4B5563", // gray-600 — 6.8:1 on cream bg, passes WCAG AA
           accent: "#FFD700", // Gold
           neutral: "#F0ECE2", // Soft neutral
-          "base-100": "#FAF3E0", // Off-white background
+          "base-100": "#F0F9FF", // sky-50: very light sky blue
           info: "#5F99F7",
           success: "#4ADE80",
           warning: "#EAB308",

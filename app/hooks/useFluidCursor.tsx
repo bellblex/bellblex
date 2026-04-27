@@ -1255,10 +1255,15 @@ const useFluidCursor = () => {
     }
   
     function generateColor() {
-      let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
+      // Alternate between sky blue (200°–215°) and warm amber (35°–50°)
+      // to match the site's daylight palette
+      const h = Math.random() < 0.65
+        ? 0.555 + Math.random() * 0.042   // sky blue range
+        : 0.097 + Math.random() * 0.042;  // warm amber/yellow range
+      let c = HSVtoRGB(h, 0.80, 1.0);
+      c.r *= 0.5;
+      c.g *= 0.5;
+      c.b *= 0.5;
       return c;
     }
   

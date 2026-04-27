@@ -14,7 +14,7 @@
   [data-theme="dark"]  .placeholder-secondary::placeholder { color: #9CA3AF; }
 
   /* Accent colour token — consumed by components via var(--accent-color) */
-  [data-theme="light"] { --accent-color: #D97706; } /* amber-600: readable on cream */
+  [data-theme="light"] { --accent-color: #D97706; } /* amber-600: readable on light */
   [data-theme="dark"]  { --accent-color: #FFD700; } /* gold: pops on dark */
 
   :root {
