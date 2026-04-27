@@ -56,49 +56,49 @@ const ContactForm: React.FC = () => {
 
         {/* Name Input */}
         <div className="space-y-3">
-          <label className={`block text-sm ${textColor}`}>Name</label>
+          <label className={`block text-base ${textColor}`}>Name</label>
           <input
             type="text"
             name="name"
             placeholder="Your Name"
             required
-            className={`w-full p-4 text-sm bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
+            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
             onChange={(e) => setFromName(e.target.value)} // Update fromName state
           />
         </div>
 
         {/* Email Input */}
         <div className="space-y-3">
-          <label className={`block text-sm ${textColor}`}>Email</label>
+          <label className={`block text-base ${textColor}`}>Email</label>
           <input
             type="email"
             name="email"
             placeholder="Your Email"
             required
-            className={`w-full p-4 text-sm bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
+            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
           />
         </div>
 
         {/* Subject Input */}
         <div className="space-y-3">
-          <label className={`block text-sm ${textColor}`}>Subject</label>
+          <label className={`block text-base ${textColor}`}>Subject</label>
           <input
             type="text"
             name="subject"
             placeholder="Subject"
             required
-            className={`w-full p-4 text-sm bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
+            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
           />
         </div>
 
         {/* Message Textarea */}
         <div className="space-y-3">
-          <label className={`block text-sm ${textColor}`}>Message</label>
+          <label className={`block text-base ${textColor}`}>Message</label>
           <textarea
             name="message"
             placeholder="Your Message"
             required
-            className={`w-full p-4 text-sm bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
+            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
           ></textarea>
         </div>
 
@@ -106,7 +106,7 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className={`px-6 py-3 text-sm border-2 ${borderColor} ${textColor} rounded-md bg-transparent ${buttonHoverBg} ${buttonHoverText} transition-all duration-300 focus:outline-none`}
+            className={`px-6 py-3 text-base border-2 ${borderColor} ${textColor} rounded-md bg-transparent ${buttonHoverBg} ${buttonHoverText} transition-all duration-300 focus:outline-none`}
           >
             Send Message
           </button>

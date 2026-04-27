@@ -41,7 +41,7 @@ export default function Home() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+              className={`text-base duration-500 ${theme === "dark" ? "text-zinc-400 hover:text-zinc-100" : "text-zinc-600 hover:text-zinc-900"}`}
             >
               {item.name}
             </Link>
@@ -85,14 +85,10 @@ export default function Home() {
       </h1>
 
       <div className="my-16 text-center animate-fade-in px-8">
-      <h2 className="text-sm text-zinc-500 ">
+      <h2 className={`text-base ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}>
         I am an Informatics Engineer and Computer Scientist Student at{" "}
-        
-        {/* Wrapped in Link to keep it clickable */}
-
-            <LinkPreview url="https://www.up.pt/feup/en/" className="duration-500 hover:text-zinc-300 inline-block"
-            >
-                <p className="text-sm text-zinc-500">
+            <LinkPreview url="https://www.up.pt/feup/en/" className={`duration-500 inline-block ${theme === "dark" ? "hover:text-zinc-200" : "hover:text-zinc-800"}`}>
+                <p className={`text-base ${theme === "dark" ? "text-zinc-400" : "text-zinc-600"}`}>
                   Faculdade de Engenharia da Universidade do Porto.
                 </p>
             </LinkPreview>

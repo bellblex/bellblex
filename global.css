@@ -4,8 +4,15 @@
 
 @layer base {
   .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
+
+  /* Guaranteed secondary text contrast — overrides DaisyUI oklch output */
+  [data-theme="light"] .text-secondary { color: #4B5563; }
+  [data-theme="dark"]  .text-secondary { color: #9CA3AF; }
+  [data-theme="light"] .placeholder-secondary::placeholder { color: #4B5563; }
+  [data-theme="dark"]  .placeholder-secondary::placeholder { color: #9CA3AF; }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -26,13 +33,9 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -53,10 +56,46 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer components {
+  /* ── Layout ─────────────────────────────────────────── */
+
+  .page-wrapper {
+    @apply w-full max-w-4xl px-6 pt-32 pb-24 flex flex-col items-start gap-6;
+  }
+
+  /* ── Typography ─────────────────────────────────────── */
+
+  .page-title {
+    @apply text-5xl sm:text-6xl font-bold text-primary;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-primary whitespace-nowrap;
+  }
+
+  .body-text {
+    @apply text-xl text-secondary leading-relaxed;
+  }
+
+  /* ── Glass surface ──────────────────────────────────── */
+
+  .glass-card {
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(128, 128, 128, 0.35);
+    box-shadow:
+      inset 0 0 10px rgba(255, 255, 255, 0.05),
+      0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* ── Tag chip ───────────────────────────────────────── */
+
+  .tag-chip {
+    @apply text-sm text-secondary px-3 py-1 rounded-full;
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1.5px solid rgba(128, 128, 128, 0.3);
   }
 }

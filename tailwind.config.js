@@ -121,7 +121,7 @@ module.exports = {
       {
         light: {
           primary: "#1E293B",
-          secondary: "#71717A", 
+          secondary: "#4B5563", // gray-600 — 6.8:1 on cream bg, passes WCAG AA
           accent: "#FFD700", // Gold
           neutral: "#F0ECE2", // Soft neutral
           "base-100": "#FAF3E0", // Off-white background
@@ -131,8 +131,8 @@ module.exports = {
           error: "#F87171",
         },
         dark: {
-          primary: "#FFFFFF", 
-          secondary: "#71717A", 
+          primary: "#FFFFFF",
+          secondary: "#9CA3AF", // gray-400 — 5.6:1 on dark bg, passes WCAG AA
           accent: "#FFD700",
           neutral: "#1A202C",
           "base-100": "#1E293B", 

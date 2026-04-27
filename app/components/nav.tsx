@@ -33,7 +33,7 @@ export const Navigation: React.FC = () => {
         <div className="container flex items-center justify-between p-4 md:p-6 mx-auto">
           <Link
             href="/"
-            className="duration-200 text-zinc-300 hover:text-zinc-100"
+            className={`duration-200 ${theme === "dark" ? "text-zinc-300 hover:text-zinc-100" : "text-zinc-600 hover:text-zinc-900"}`}
           >
             <ArrowLeft className="w-6 h-6" />
           </Link>
@@ -41,19 +41,19 @@ export const Navigation: React.FC = () => {
           <div className="flex gap-4 md:gap-8">
             <Link
               href="/about"
-              className="text-sm text-zinc-400 hover:text-zinc-100 transition-all duration-500"
+              className={`text-base transition-all duration-500 ${theme === "dark" ? "text-zinc-400 hover:text-zinc-100" : "text-zinc-600 hover:text-zinc-900"}`}
             >
               About me
             </Link>
             <Link
               href="/maintenance"
-              className="text-sm text-zinc-400 hover:text-zinc-100 transition-all duration-500"
+              className={`text-base transition-all duration-500 ${theme === "dark" ? "text-zinc-400 hover:text-zinc-100" : "text-zinc-600 hover:text-zinc-900"}`}
             >
               Projects
             </Link>
             <Link
               href="/contact"
-              className="text-sm text-zinc-400 hover:text-zinc-100 transition-all duration-500"
+              className={`text-base transition-all duration-500 ${theme === "dark" ? "text-zinc-400 hover:text-zinc-100" : "text-zinc-600 hover:text-zinc-900"}`}
             >
               Contact
             </Link>

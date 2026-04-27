@@ -6,6 +6,7 @@ import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import { Navigation } from "../components/nav";
 import ContactForm from "../components/ui/contactForm";
 import { Card } from "../components/ui/card";
+
 interface Social {
   icon: ReactNode;
   href: string;
@@ -13,7 +14,7 @@ interface Social {
   handle: string;
 }
 
-const socials = [
+const socials: Social[] = [
   {
     icon: <Instagram size={40} />,
     href: "https://www.instagram.com/eduardagmagno/",
@@ -47,62 +48,50 @@ export default function ContactPage(): JSX.Element {
 
       <div className="flex-grow flex items-center justify-center p-6 my-10 sm:p-12 relative z-10">
         <Card>
-          <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-12">
-              Contact
-            </h1>
-          </div>
+          <h1 className="page-title mb-12 text-center w-full">Contact</h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-12 relative">
-            <div className="hidden md:block absolute inset-y-0 left-1/2 transform -translate-x-1/2 border-l-2 border-secondary"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12 relative">
+            <div className="hidden md:block absolute inset-y-0 left-1/2 -translate-x-1/2 border-l border-gray-500/30" />
 
-            <div className="space-y-8 flex flex-col items-center justify-center">
-              <div className="relative flex justify-center">
-                <div className="avatar">
-                  <div className="w-64 h-64 rounded-lg shadow-lg overflow-hidden">
-                    <img
-                      src="/IMG_7011.jpg"
-                      alt="Eduarda Magno"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+            <div className="flex flex-col items-center gap-8">
+              <div className="w-64 h-64 rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src="/IMG_7011.jpg"
+                  alt="Eduarda Magno"
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <div>
-                <h2 className="text-primary font-semibold text-lg text-center">
-                  Eduarda Magno
-                </h2>
-                <p className="text-secondary text-sm mt-4 text-center">
-                  I am an 18-year-old student, studying in the 2nd year of
-                  Informatics Engineering and Computer Science at the University
-                  of Porto.
+
+              <div className="text-center">
+                <h2 className="section-title">Eduarda Magno</h2>
+                <p className="body-text mt-3 text-base">
+                  CS student at FEUP, interning at GLS Germany IT.
                 </p>
-                <p className="text-secondary text-sm mt-4 text-center">
-                  Contact me for proposals or any questions you might have!
+                <p className="text-base text-secondary mt-2">
+                  Open to proposals and questions!
                 </p>
               </div>
 
-              <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6 md:space-x-8 mt-8">
+              <div className="flex gap-6">
                 {socials.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
                     target="_blank"
-                    className="flex flex-col items-center gap-2 duration-500"
+                    aria-label={s.label}
+                    className="text-secondary hover:text-primary transition-colors duration-300"
                   >
-                    <span className="flex items-center justify-center text-secondary transition-colors duration-300 ease-in-out hover:text-primary drop-shadow-md">
-                      {s.icon}
-                    </span>
+                    {s.icon}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="pl-0 sm:pl-8 flex justify-center items-center">
+            <div className="flex justify-center items-center">
               <ContactForm />
             </div>
           </div>
-          </Card>
+        </Card>
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const Timeline = () => {
                   className="object-contain w-full h-full"
                 />
               ) : (
-                <span className="text-[10px] font-bold text-secondary uppercase">
+                <span className="text-xs font-bold text-secondary uppercase">
                   {exp.organization.slice(0, 2)}
                 </span>
               )}
@@ -50,20 +50,15 @@ const Timeline = () => {
           <div
             className={cn(
               index % 2 === 0 ? "timeline-start" : "timeline-end",
-              "mb-4 rounded-xl px-4 py-3 max-w-sm"
+              "glass-card mb-4 px-4 py-3 max-w-sm"
             )}
-            style={{
-              backgroundColor: "rgba(255,255,255,0.07)",
-              border: "1.5px solid rgba(128,128,128,0.35)",
-              boxShadow: "inset 0 0 8px rgba(255,255,255,0.04), 0 2px 8px rgba(0,0,0,0.1)",
-            }}
           >
-            <time className="text-xs italic text-secondary/70">{exp.date}</time>
-            <p className="text-sm font-bold text-primary leading-snug">{exp.title}</p>
-            <p className="text-xs font-medium text-secondary mb-2">{exp.organization}</p>
-            <ul className="space-y-1">
+            <time className="text-sm italic text-secondary">{exp.date}</time>
+            <p className="text-base font-bold text-primary leading-snug">{exp.title}</p>
+            <p className="text-sm font-medium text-secondary mb-2">{exp.organization}</p>
+            <ul className="space-y-1.5 mt-1">
               {exp.description.map((desc, i) => (
-                <li key={i} className="text-xs text-secondary/80 leading-relaxed flex gap-1.5">
+                <li key={i} className="text-sm text-secondary leading-relaxed flex gap-2">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-secondary/40 flex-shrink-0" />
                   <span>{desc}</span>
                 </li>
