@@ -1,0 +1,18 @@
+.next-dev : The term '.next-dev' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:20
++ $env:NEXT_DIST_DIR=.next-dev; npm run dev -- -p 3001
++                    ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.next-dev:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+[Error: EPERM: operation not permitted, open 'C:\Du\Projetos\bellblex\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Du\\Projetos\\bellblex\\.next\\trace'
+}
+Browserslist: browsers data (caniuse-lite) is 17 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat 'C:\Du\Projetos\bellblex\.next\cache\webpack\server-development\7.pack.gz'

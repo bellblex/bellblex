@@ -1255,7 +1255,7 @@ const useFluidCursor = () => {
     }
   
     function generateColor() {
-      // Alternate between sky blue (200°–215°) and warm amber (35°–50°)
+      // Alternate between sky blue and warm amber.
       // to match the site's daylight palette
       const h = Math.random() < 0.65
         ? 0.555 + Math.random() * 0.042   // sky blue range

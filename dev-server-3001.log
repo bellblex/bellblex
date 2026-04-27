@@ -1,0 +1,19 @@
+
+> eduardagmagno@0.1.0 dev
+> next dev -p 3001
+
+  ▲ Next.js 13.5.7
+  - Local:        http://localhost:3001
+  - Experiments (use at your own risk):
+     · mdxRs
+
+ ✓ Ready in 2.4s
+
+🌼   [35mdaisyUI[39m [2m4.12.14[22m
+├─ [32m✔︎[39m 2 themes added[2m		https://daisyui.com/docs/themes[22m
+╰─ [32m★[39m [0mStar daisyUI on GitHub[0m	[2mhttps://github.com/saadeghi/daisyui[22m
+
+ ○ Compiling /page ...
+ ✓ Compiled /page in 3.7s (1192 modules)
+ ✓ Compiled in 631ms (598 modules)
+ ✓ Compiled /projects/page in 307ms (1176 modules)

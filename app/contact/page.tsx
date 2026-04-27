@@ -42,35 +42,27 @@ export default function ContactPage(): JSX.Element {
       <Navigation />
 
       <main className="page-wrapper">
-        {/* Intro — photo + bio side-by-side, mirrors About page */}
-        <div className="w-full flex flex-col md:flex-row gap-8 items-start">
-          <div className="w-full h-64 sm:w-56 sm:h-72 md:w-52 md:h-80 rounded-2xl overflow-hidden flex-shrink-0 glass-card">
-            <img
-              src="/IMG_7011.jpg"
-              alt="Eduarda Magno"
-              className="object-cover w-full h-full"
-            />
-          </div>
-
+        <div className="w-full grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div className="flex flex-col gap-4">
             <h1 className="page-title">Contact</h1>
             <p className="body-text max-w-2xl">
               CS student at FEUP, currently interning at GLS Germany IT.
               Open to proposals, questions, and collaborations.
             </p>
-            <div className="flex gap-5 mt-1">
-              {socials.map((s) => (
-                <Link
-                  key={s.href}
-                  href={s.href}
-                  target="_blank"
-                  aria-label={s.label}
-                  className="text-secondary hover:text-primary transition-colors duration-300"
-                >
-                  {s.icon}
-                </Link>
-              ))}
-            </div>
+          </div>
+
+          <div className="glass-card flex gap-5 p-4">
+            {socials.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                target="_blank"
+                aria-label={s.label}
+                className="text-secondary hover:text-primary transition-colors duration-300"
+              >
+                {s.icon}
+              </Link>
+            ))}
           </div>
         </div>
 

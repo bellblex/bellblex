@@ -31,8 +31,8 @@ module.exports = {
   			]
   		},
   		backgroundImage: {
-  			'gradient-light': 'linear-gradient(160deg, #7DD3FC, #BAE6FD, #E0F2FE, #FEFCE8)',
-  			'gradient-dark': 'linear-gradient(135deg, #1E293B, #2D3748, #4A5568)'
+  			'gradient-light': 'radial-gradient(circle at 14% 18%, rgba(37, 99, 235, 0.16), transparent 26%), radial-gradient(circle at 82% 12%, rgba(249, 115, 22, 0.14), transparent 24%), linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 44%, #FFF7ED 100%)',
+  			'gradient-dark': 'radial-gradient(circle at 12% 20%, rgba(56, 189, 248, 0.18), transparent 26%), radial-gradient(circle at 86% 18%, rgba(250, 204, 21, 0.12), transparent 22%), linear-gradient(135deg, #020617 0%, #111827 46%, #18181B 100%)'
   		},
   		animation: {
   			'fade-in': 'fade-in 1.5s ease-in-out forwards',
@@ -121,10 +121,10 @@ module.exports = {
       {
         light: {
           primary: "#1E293B",
-          secondary: "#4B5563", // gray-600 — 6.8:1 on cream bg, passes WCAG AA
-          accent: "#FFD700", // Gold
-          neutral: "#F0ECE2", // Soft neutral
-          "base-100": "#F0F9FF", // sky-50: very light sky blue
+          secondary: "#4B5563",
+          accent: "#2563EB",
+          neutral: "#F8FAFC",
+          "base-100": "#F8FAFC",
           info: "#5F99F7",
           success: "#4ADE80",
           warning: "#EAB308",
@@ -132,10 +132,10 @@ module.exports = {
         },
         dark: {
           primary: "#FFFFFF",
-          secondary: "#9CA3AF", // gray-400 — 5.6:1 on dark bg, passes WCAG AA
-          accent: "#FFD700",
-          neutral: "#1A202C",
-          "base-100": "#1E293B", 
+          secondary: "#9CA3AF",
+          accent: "#38BDF8",
+          neutral: "#111827",
+          "base-100": "#020617", 
           info: "#3B82F6",
           success: "#10B981",
           warning: "#F59E0B",
