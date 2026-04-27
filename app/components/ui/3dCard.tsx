@@ -55,26 +55,8 @@ export const CardContainer = ({
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className={cn(
-            "relative transition-all duration-200 ease-linear p-6 border border-secondary rounded-lg shadow-lg hover:shadow-xl backdrop-filter backdrop-blur-md dark:backdrop-blur-lg border-opacity-40 dark:border-opacity-40",
-            className
-          )}
-          style={{
-            transformStyle: "preserve-3d",
-            background: "transparent",
-            backdropFilter: "blur(0px)",
-            WebkitBackdropFilter: "blur(0px)",
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            border: "2px solid rgba(128, 128, 128, 0.5)",
-            borderRadius: "16px",
-            boxShadow: `
-              inset 0 0 10px rgba(255, 255, 255, 0.3),
-              0 4px 6px rgba(0, 0, 0, 0.1)
-            `,
-            width: "auto",
-            maxWidth: "80vw",
-            minHeight: "auto",
-          }}
+          className={cn("glass-card relative transition-all duration-200 ease-linear p-6", className)}
+          style={{ transformStyle: "preserve-3d", width: "auto", maxWidth: "80vw" }}
         >
           {children}
         </div>

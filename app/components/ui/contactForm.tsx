@@ -2,13 +2,11 @@
 
 import React, { useState } from "react";
 import ContactPopup from "./contactPopUp";
-import { useTheme } from "../../themeContext";
 
 const ContactForm: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
-  const [fromName, setFromName] = useState(""); // State to track the user's name
-  const { theme } = useTheme(); // Access current theme
+  const [fromName, setFromName] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,10 +35,8 @@ const ContactForm: React.FC = () => {
     }
   };
 
-  const textColor = theme === "dark" ? "text-primary" : "text-primary"; // Dark: white, Light: primary
-  const borderColor = theme === "dark" ? "border-secondary" : "border-secondary"; // Dark: secondary, Light: primary
-  const buttonHoverBg = theme === "dark" ? "hover:bg-secondary" : "hover:bg-secondary";
-  const buttonHoverText = theme === "dark" ? "hover:text-primary" : "hover:text-primary";
+  const textColor = "text-primary";
+  const borderColor = "border-secondary";
 
   return (
     <>
@@ -104,10 +100,7 @@ const ContactForm: React.FC = () => {
 
         {/* Submit Button */}
         <div className="flex justify-center">
-          <button
-            type="submit"
-            className={`px-6 py-3 text-base border-2 ${borderColor} ${textColor} rounded-md bg-transparent ${buttonHoverBg} ${buttonHoverText} transition-all duration-300 focus:outline-none`}
-          >
+          <button type="submit" className="accent-btn">
             Send Message
           </button>
         </div>

@@ -13,6 +13,10 @@
   [data-theme="light"] .placeholder-secondary::placeholder { color: #4B5563; }
   [data-theme="dark"]  .placeholder-secondary::placeholder { color: #9CA3AF; }
 
+  /* Accent colour token — consumed by components via var(--accent-color) */
+  [data-theme="light"] { --accent-color: #D97706; } /* amber-600: readable on cream */
+  [data-theme="dark"]  { --accent-color: #FFD700; } /* gold: pops on dark */
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -69,11 +73,11 @@
   /* ── Typography ─────────────────────────────────────── */
 
   .page-title {
-    @apply text-5xl sm:text-6xl font-bold text-primary;
+    @apply text-5xl sm:text-6xl font-bold text-primary font-display;
   }
 
   .section-title {
-    @apply text-2xl font-bold text-primary whitespace-nowrap;
+    @apply text-2xl font-bold text-primary font-display whitespace-nowrap;
   }
 
   .body-text {
@@ -94,8 +98,28 @@
   /* ── Tag chip ───────────────────────────────────────── */
 
   .tag-chip {
-    @apply text-sm text-secondary px-3 py-1 rounded-full;
+    @apply text-sm text-secondary px-3 py-1 rounded-full transition-colors duration-200;
     background-color: rgba(255, 255, 255, 0.07);
     border: 1.5px solid rgba(128, 128, 128, 0.3);
+  }
+
+  .tag-chip:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    opacity: 0.9;
+  }
+
+  /* ── Accent button ──────────────────────────────────── */
+
+  .accent-btn {
+    @apply px-6 py-3 text-base rounded-md bg-transparent transition-all duration-300;
+    @apply focus:outline-none;
+    border: 2px solid color-mix(in srgb, var(--accent-color) 60%, transparent);
+    color: inherit;
+  }
+
+  .accent-btn:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    border-color: var(--accent-color);
   }
 }

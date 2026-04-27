@@ -25,11 +25,11 @@ const Timeline = () => {
     <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
       {experience.map((exp, index) => (
         <li key={index} className="timeline-item opacity-0 translate-y-4 transition-all duration-500 ease-out">
-          {index !== 0 && <hr className="border-gray-500/40" />}
+          {index !== 0 && <hr style={{ borderColor: "color-mix(in srgb, var(--accent-color) 20%, transparent)" }} />}
 
           {/* Dot */}
           <div className="timeline-middle">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20 bg-white/10 flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-full overflow-hidden bg-white/10 flex items-center justify-center flex-shrink-0" style={{ border: "1px solid color-mix(in srgb, var(--accent-color) 40%, transparent)" }}>
               {exp.logo ? (
                 <Image
                   src={exp.logo}
@@ -66,7 +66,7 @@ const Timeline = () => {
             </ul>
           </div>
 
-          <hr className="border-gray-500/40" />
+          <hr style={{ borderColor: "color-mix(in srgb, var(--accent-color) 20%, transparent)" }} />
         </li>
       ))}
     </ul>
