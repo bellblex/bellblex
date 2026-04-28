@@ -11,6 +11,7 @@ interface Social {
   icon: ReactNode;
   href: string;
   label: string;
+  detail: string;
 }
 
 const socials: Social[] = [
@@ -18,21 +19,25 @@ const socials: Social[] = [
     icon: <Instagram size={22} />,
     href: "https://www.instagram.com/eduardagmagno/",
     label: "Instagram",
+    detail: "@eduardagmagno",
   },
   {
     icon: <Linkedin size={22} />,
     href: "https://www.linkedin.com/in/eduardagmagno",
     label: "LinkedIn",
+    detail: "/in/eduardagmagno",
   },
   {
     icon: <Github size={22} />,
     href: "https://github.com/bellblex",
     label: "GitHub",
+    detail: "github.com/bellblex",
   },
   {
     icon: <Mail size={22} />,
     href: "mailto:eduardagmagno@gmail.com",
     label: "Email",
+    detail: "eduardagmagno@gmail.com",
   },
 ];
 
@@ -42,32 +47,45 @@ export default function ContactPage(): JSX.Element {
       <Navigation />
 
       <main className="page-wrapper">
-        <div className="w-full grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="w-full">
           <div className="flex flex-col gap-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
+              Get in touch
+            </p>
             <h1 className="page-title">Contact</h1>
             <p className="body-text max-w-2xl">
-              CS student at FEUP, currently interning at GLS Germany IT.
-              Open to proposals, questions, and collaborations.
+              Open to proposals, questions, collaborations, and anything that
+              sounds like an interesting technical challenge.
             </p>
-          </div>
-
-          <div className="glass-card flex gap-5 p-4">
-            {socials.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                target="_blank"
-                aria-label={s.label}
-                className="text-secondary hover:text-primary transition-colors duration-300"
-              >
-                {s.icon}
-              </Link>
-            ))}
           </div>
         </div>
 
-        <SectionDivider title="Get in Touch" />
-
+        <div className="grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {socials.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              target="_blank"
+              aria-label={s.label}
+              className="glass-card group flex items-center gap-3 p-3 text-left transition-transform duration-300 hover:-translate-y-1"
+            >
+              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md text-white" style={{ background: "var(--accent-color)" }}>
+                {s.icon}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-primary">
+                  {s.label}
+                </span>
+                <span className="block truncate text-xs text-secondary transition-colors group-hover:text-primary">
+                  {s.detail}
+                </span>
+              </span>
+            </Link>
+          ))}
+        </div>
+        
+        <SectionDivider title="Contact Form" />
+            
         <div className="w-full">
           <ContactForm />
         </div>

@@ -35,13 +35,13 @@ const ContactForm: React.FC = () => {
     }
   };
 
-  const textColor = "text-primary";
-  const borderColor = "border-secondary";
+  const inputClass =
+    "w-full rounded-md border border-[var(--surface-border)] bg-transparent px-4 py-3 text-sm text-primary outline-none transition-colors placeholder-secondary focus:border-[var(--accent-color)]";
+  const labelClass = "block text-sm font-medium text-primary";
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Hidden Fields for Web3Forms */}
+      <form onSubmit={handleSubmit} className="glass-card w-full p-5 sm:p-6">
         <input
           type="hidden"
           name="access_key"
@@ -50,56 +50,57 @@ const ContactForm: React.FC = () => {
         <input type="hidden" name="from_name" value={fromName} />
         <input type="checkbox" name="botcheck" style={{ display: "none" }} />
 
-        {/* Name Input */}
-        <div className="space-y-3">
-          <label className={`block text-base ${textColor}`}>Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            required
-            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
-            onChange={(e) => setFromName(e.target.value)} // Update fromName state
-          />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-2">
+            <label className={labelClass}>Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+              className={inputClass}
+              onChange={(e) => setFromName(e.target.value)}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className={labelClass}>Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              className={inputClass}
+            />
+          </div>
         </div>
 
-        {/* Email Input */}
-        <div className="space-y-3">
-          <label className={`block text-base ${textColor}`}>Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
-          />
-        </div>
-
-        {/* Subject Input */}
-        <div className="space-y-3">
-          <label className={`block text-base ${textColor}`}>Subject</label>
+        <div className="mt-4 space-y-2">
+          <label className={labelClass}>Subject</label>
           <input
             type="text"
             name="subject"
-            placeholder="Subject"
+            placeholder="What should we talk about?"
             required
-            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
+            className={inputClass}
           />
         </div>
 
-        {/* Message Textarea */}
-        <div className="space-y-3">
-          <label className={`block text-base ${textColor}`}>Message</label>
+        <div className="mt-4 space-y-2">
+          <label className={labelClass}>Message</label>
           <textarea
             name="message"
-            placeholder="Your Message"
+            placeholder="A few details are enough."
             required
-            className={`w-full p-4 text-base bg-transparent border-b-2 ${borderColor} ${textColor} focus:border-primary outline-none placeholder-secondary`}
-          ></textarea>
+            rows={4}
+            className={`${inputClass} resize-none`}
+          />
         </div>
 
-        {/* Submit Button */}
-        <div className="flex justify-center">
+        <div className="mt-5 flex items-center justify-between gap-4">
+          <p className="hidden text-sm text-secondary sm:block">
+            I usually reply by email.
+          </p>
           <button type="submit" className="accent-btn">
             Send Message
           </button>

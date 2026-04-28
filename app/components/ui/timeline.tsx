@@ -29,13 +29,13 @@ const Timeline = () => {
 
           {/* Dot */}
           <div className="timeline-middle">
-            <div className="w-8 h-8 rounded-full overflow-hidden bg-white/10 flex items-center justify-center flex-shrink-0" style={{ border: "1px solid color-mix(in srgb, var(--accent-color) 40%, transparent)" }}>
+            <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center flex-shrink-0 p-1" style={{ border: "1px solid color-mix(in srgb, var(--accent-color) 40%, transparent)" }}>
               {exp.logo ? (
                 <Image
                   src={exp.logo}
                   alt={exp.organization}
-                  width={32}
-                  height={32}
+                  width={40}
+                  height={40}
                   className="object-contain w-full h-full"
                 />
               ) : (
