@@ -3,6 +3,7 @@
 import React from "react";
 import { ChevronDown } from "lucide-react";
 import { Navigation } from "../components/nav";
+import PageIntro from "../components/ui/page-intro";
 import Timeline from "../components/ui/timeline";
 import SectionDivider from "../components/ui/section-divider";
 
@@ -30,23 +31,23 @@ const current = [
 
 const polaroids = [
   {
-    src: "/IMG_7011.jpg",
-    alt: "Eduarda Magno portrait",
-    caption: "FEUP days",
+    src: "/images/exploring.jpeg",
+    alt: "Leisure Activitiest",
+    caption: "Exploring new things",
     rotate: "-rotate-6",
     position: "object-center",
   },
   {
-    src: "/IMG_7011.jpg",
-    alt: "Eduarda Magno candid moment",
-    caption: "Campus life",
+    src: "/images/presenting.jpeg",
+    alt: "Public Speaking",
+    caption: "Public Speaking",
     rotate: "rotate-3",
     position: "object-[50%_38%]",
   },
   {
-    src: "/IMG_7011.jpg",
-    alt: "Eduarda Magno personal photo",
-    caption: "Painting breaks",
+    src: "/images/representing.jpeg",
+    alt: "Representing FEUP at Futuralia",
+    caption: "Representing my University",
     rotate: "-rotate-2",
     position: "object-[50%_62%]",
   },
@@ -61,25 +62,25 @@ export default function AboutMe() {
         <section className="flex min-h-[calc(100vh-8rem)] w-full flex-col justify-start gap-8">
           <div className="grid w-full gap-10 lg:grid-cols-[1fr_22rem] lg:items-center">
             <div className="flex flex-col gap-5">
-              <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
-                  About
+              <PageIntro
+                eyebrow="About"
+                title="Informatics Engineering student"
+                bodyClassName="text-base leading-relaxed text-secondary sm:text-lg"
+              >
+                <p>
+                  I am Eduarda, a final-year Informatics and Computing Engineering
+                  student at FEUP, with a broad foundation across software,
+                  systems, data, web applications, AI, graphics, security, and
+                  applied computing.
                 </p>
-                <h1 className="page-title">CS student with a practical streak</h1>
-              </div>
-              <p className="max-w-3xl text-base leading-relaxed text-secondary sm:text-lg">
-                I am Eduarda, a final-year Informatics and Computing Engineering
-                student at FEUP, with a broad foundation across software,
-                systems, data, web applications, AI, graphics, security, and
-                applied computing.
-              </p>
-              <p className="max-w-3xl text-base leading-relaxed text-secondary sm:text-lg">
-                I am currently complementing that technical base with hands-on
-                UI/UX and front-end experience at GLS Germany IT. Outside class,
-                I am involved in student organizations, communications, events,
-                and representation work. I also like painting, gaming, swimming,
-                and small creative side projects.
-              </p>
+                <p className="mt-4">
+                  I am currently complementing that technical base with hands-on
+                  UI/UX and front-end experience at GLS Germany IT. Outside class,
+                  I am involved in student organizations, communications, events,
+                  and representation work. I also like painting, gaming, swimming,
+                  and small creative side projects.
+                </p>
+              </PageIntro>
               <div className="flex flex-wrap gap-2">
                 {tags.map((tag) => (
                   <span key={tag} className="tag-chip">

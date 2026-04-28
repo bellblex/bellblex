@@ -25,17 +25,20 @@ const Timeline = () => {
     <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
       {experience.map((exp, index) => (
         <li key={index} className="timeline-item opacity-0 translate-y-4 transition-all duration-500 ease-out">
-          {index !== 0 && <hr style={{ borderColor: "color-mix(in srgb, var(--accent-color) 20%, transparent)" }} />}
+          {index !== 0 && <hr className="border-[color-mix(in_srgb,var(--accent-color)_20%,transparent)]" />}
 
           {/* Dot */}
           <div className="timeline-middle">
-            <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center flex-shrink-0 p-1" style={{ border: "1px solid color-mix(in srgb, var(--accent-color) 40%, transparent)" }}>
+            <div
+              className="w-12 h-12 rounded-2xl overflow-hidden bg-white/80 dark:bg-white/10 flex items-center justify-center flex-shrink-0 p-1.5 border border-[color-mix(in_srgb,var(--accent-color)_40%,transparent)]"
+              style={exp.logoBg ? { backgroundColor: exp.logoBg } : undefined}
+            >
               {exp.logo ? (
                 <Image
                   src={exp.logo}
                   alt={exp.organization}
-                  width={40}
-                  height={40}
+                  width={48}
+                  height={48}
                   className="object-contain w-full h-full"
                 />
               ) : (
@@ -66,7 +69,7 @@ const Timeline = () => {
             </ul>
           </div>
 
-          <hr style={{ borderColor: "color-mix(in srgb, var(--accent-color) 20%, transparent)" }} />
+          <hr className="border-[color-mix(in_srgb,var(--accent-color)_20%,transparent)]" />
         </li>
       ))}
     </ul>

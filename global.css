@@ -15,6 +15,13 @@
   [data-theme="light"] {
     --accent-color: #2563EB;
     --accent-warm: #F97316;
+    --brand-from: #6C757D;
+    --brand-via: #87CEEB;
+    --brand-to: #D97706;
+    --page-bg:
+      radial-gradient(circle at 14% 18%, rgba(37, 99, 235, 0.16), transparent 26%),
+      radial-gradient(circle at 82% 12%, rgba(249, 115, 22, 0.14), transparent 24%),
+      linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 44%, #FFF7ED 100%);
     --surface-color: rgba(255, 255, 255, 0.74);
     --surface-border: rgba(15, 23, 42, 0.12);
   }
@@ -22,6 +29,13 @@
   [data-theme="dark"] {
     --accent-color: #38BDF8;
     --accent-warm: #FACC15;
+    --brand-from: #A0AEC0;
+    --brand-via: #63B3ED;
+    --brand-to: #FFD700;
+    --page-bg:
+      radial-gradient(circle at 12% 20%, rgba(56, 189, 248, 0.18), transparent 26%),
+      radial-gradient(circle at 86% 18%, rgba(250, 204, 21, 0.12), transparent 22%),
+      linear-gradient(135deg, #020617 0%, #111827 46%, #18181B 100%);
     --surface-color: rgba(15, 23, 42, 0.58);
     --surface-border: rgba(148, 163, 184, 0.22);
   }
@@ -77,6 +91,10 @@
     @apply w-full max-w-5xl px-6 pt-32 pb-24 flex flex-col items-start gap-8;
   }
 
+  .theme-bg {
+    background: var(--page-bg);
+  }
+
   .page-title {
     @apply text-5xl sm:text-6xl font-bold text-primary font-display leading-none;
   }
@@ -85,8 +103,34 @@
     @apply text-2xl font-bold text-primary font-display whitespace-nowrap;
   }
 
+  .section-line-left {
+    background: linear-gradient(to right, transparent, var(--accent-color));
+  }
+
+  .section-line-right {
+    background: linear-gradient(to left, transparent, var(--accent-color));
+  }
+
   .body-text {
     @apply text-lg sm:text-xl text-secondary leading-relaxed;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.24em] text-secondary;
+  }
+
+  .card-eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.18em] text-secondary;
+  }
+
+  .brand-gradient-text {
+    background-image: linear-gradient(
+      90deg,
+      var(--brand-from),
+      var(--brand-via),
+      var(--brand-to)
+    );
+    @apply bg-clip-text text-transparent;
   }
 
   .glass-card {
@@ -108,6 +152,29 @@
   .tag-chip:hover {
     color: var(--accent-color);
     border-color: var(--accent-color);
+  }
+
+  .icon-badge {
+    @apply flex items-center justify-center rounded-md text-white;
+    background: var(--accent-color);
+  }
+
+  .status-pill {
+    @apply rounded-full px-3 py-1 text-sm text-primary;
+    background: color-mix(in srgb, var(--accent-warm) 16%, transparent);
+  }
+
+  .filter-pill {
+    @apply rounded-md px-3 py-2 text-sm font-medium text-secondary transition-colors;
+  }
+
+  .filter-pill:hover {
+    @apply text-primary;
+  }
+
+  .filter-pill-active {
+    @apply text-white;
+    background: var(--accent-color);
   }
 
   .accent-btn {

@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ArrowUpRight,
+  BarChart3,
   Binary,
   BookOpen,
   Bot,
@@ -24,6 +25,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Navigation } from "../components/nav";
+import PageIntro from "../components/ui/page-intro";
 import SectionDivider from "../components/ui/section-divider";
 
 const filters = [
@@ -74,17 +76,17 @@ const projects: Project[] = [
   },
   {
     title: "Molecular Computing Report",
-    eyebrow: "Projeto UP",
+    eyebrow: "University of Porto Project",
     icon: <Binary className="h-5 w-5" />,
     description:
       "A research report on molecular computing, DNA-based computation, molecular robotics, and possible future applications.",
-    categories: ["Research", "Systems"],
+    categories: ["Research"],
     tools: ["Molecular computing", "Biotechnology", "Research"],
     status: "Completed",
   },
   {
     title: "Distribution Company Database",
-    eyebrow: "Bases de Dados",
+    eyebrow: "Databases",
     icon: <Database className="h-5 w-5" />,
     description:
       "A relational database model for suppliers, clients, products, sales, stock, finances, and seller performance in a distribution company.",
@@ -93,19 +95,29 @@ const projects: Project[] = [
     status: "Completed",
   },
   {
+    title: "Real Estate Power BI Report",
+    eyebrow: "Power BI / Data Visualization",
+    icon: <BarChart3 className="h-5 w-5" />,
+    description:
+      "An interactive real estate analytics report with summary, map, and key-influencer views for exploring prices by district, property type, typology, condition, construction year, and IMI metrics.",
+    categories: ["AI and data"],
+    tools: ["Power BI", "Data visualization", "Real estate analytics", "Maps", "Key influencers"],
+    status: "Completed",
+  },
+  {
     title: "Robbing Diamonds",
-    eyebrow: "Laboratório de Desenho e Teste de Software",
+    eyebrow: "Software Design and Testing Laboratory",
     icon: <Gamepad2 className="h-5 w-5" />,
     description:
       "A terminal stealth game in Java where a thief collects diamonds, avoids guards, manages lives, and progresses through harder mazes.",
     categories: ["Course projects", "Games and graphics"],
     tools: ["Java", "Lanterna", "JUnit", "Mockito", "jqwik", "PITest"],
     status: "Completed",
-    githubHref: "https://github.com/FEUP-LDTS-2024/project-t15g02",
+    githubHref: "https://github.com/bellblex/Software-Design-and-Testing-Laboratory",
   },
   {
     title: "Scientific Conference Review Assignment Tool",
-    eyebrow: "Desenho de Algoritmos",
+    eyebrow: "Algorithm Design",
     icon: <Network className="h-5 w-5" />,
     description:
       "A review assignment tool that models paper-reviewer allocation as a maximum-flow problem with risk analysis.",
@@ -115,28 +127,29 @@ const projects: Project[] = [
   },
   {
     title: "Fruggies - Mobile App",
-    eyebrow: "Engenharia de Software",
+    eyebrow: "Software Engineering",
     icon: <Sprout className="h-5 w-5" />,
     description:
       "A sustainable urban gardening and produce-exchange app covering requirements, domain modeling, architecture, sprints, and release planning.",
-    categories: ["Course projects", "Web apps"],
+    categories: ["Course projects"],
     tools: ["Software engineering", "Product vision", "User stories", "Architecture"],
     status: "Completed",
+    githubHref: "https://github.com/bellblex/Software-Engineering",
   },
   {
     title: "Freelancer Platform",
-    eyebrow: "Linguagens e Tecnologias Web",
+    eyebrow: "Web Languages and Technologies",
     icon: <Globe2 className="h-5 w-5" />,
     description:
       "A PHP and SQLite marketplace where freelancers list services, clients browse and hire, admins manage categories, and users message in real time.",
     categories: ["Course projects", "Web apps"],
     tools: ["PHP", "SQLite", "Security", "Messaging", "Admin tools"],
     status: "Completed",
-    githubHref: "https://github.com/FEUP-LTW-2025/ltw-project-ltw10g06",
+    githubHref: "https://github.com/bellblex/Web-Languages-and-Technologies",
   },
   {
     title: "Leadership Interview Report",
-    eyebrow: "Liderança e Gestão de Equipas",
+    eyebrow: "Leadership and Team Management",
     icon: <Users className="h-5 w-5" />,
     description:
       "An interview-based report analyzing real leadership practices through communication, motivation, team management, and conflict models.",
@@ -146,7 +159,7 @@ const projects: Project[] = [
   },
   {
     title: "SEED Labs Security Reports",
-    eyebrow: "Fundamentos de Segurança Informática",
+    eyebrow: "Computer Security Foundations",
     icon: <ShieldCheck className="h-5 w-5" />,
     description:
       "A collection of weekly computer security lab reports documenting practical SEED Labs exercises and solutions.",
@@ -156,17 +169,17 @@ const projects: Project[] = [
   },
   {
     title: "PiggyPal - Finance UI Concept",
-    eyebrow: "Interação Pessoa Computador",
+    eyebrow: "Human-Computer Interaction",
     icon: <MonitorSmartphone className="h-5 w-5" />,
     description:
       "A human-computer interaction project exploring a novel finance interface for mobile, web, or another approved medium.",
-    categories: ["Course projects", "Web apps"],
+    categories: ["Course projects"],
     tools: ["HCI", "Finance", "UI research", "Prototyping"],
     status: "In progress",
   },
   {
     title: "Atlas - Project Management System",
-    eyebrow: "Laboratório de Bases de Dados e Aplicações Web",
+    eyebrow: "Database and Web Applications Laboratory",
     icon: <Database className="h-5 w-5" />,
     description:
       "A collaborative project-management web app with projects, tasks, roles, forums, notifications, search, and administration.",
@@ -176,7 +189,7 @@ const projects: Project[] = [
   },
   {
     title: "Serial Port File Transfer Protocol",
-    eyebrow: "Redes de Computadores",
+    eyebrow: "Computer Networks",
     icon: <Network className="h-5 w-5" />,
     description:
       "A link-layer and application protocol for reliable file transfer over a virtual serial port with disconnections and noise.",
@@ -186,7 +199,7 @@ const projects: Project[] = [
   },
   {
     title: "JVM Compiler",
-    eyebrow: "Compiladores",
+    eyebrow: "Compilers",
     icon: <Cpu className="h-5 w-5" />,
     description:
       "A compiler project extending a Java-like language frontend and generating JVM instructions through Jasmin.",
@@ -196,7 +209,7 @@ const projects: Project[] = [
   },
   {
     title: "Prairie Schooner Survival Game",
-    eyebrow: "Computação Gráfica",
+    eyebrow: "Computer Graphics",
     icon: <Gamepad2 className="h-5 w-5" />,
     description:
       "A WebCGF 3D survival game with a prairie scene, wagon controls, terrain, lighting, textures, animations, shaders, and collectables.",
@@ -206,7 +219,7 @@ const projects: Project[] = [
   },
   {
     title: "Matrix Multiplication Performance Study",
-    eyebrow: "Computação Paralela e Distribuída",
+    eyebrow: "Parallel and Distributed Computing",
     icon: <Cpu className="h-5 w-5" />,
     description:
       "A performance evaluation of matrix multiplication across languages, cache-aware versions, blocking, OpenMP, perf counters, and speedup analysis.",
@@ -216,7 +229,7 @@ const projects: Project[] = [
   },
   {
     title: "TCP Chat System with AI Rooms",
-    eyebrow: "Computação Paralela e Distribuída",
+    eyebrow: "Parallel and Distributed Computing",
     icon: <Bot className="h-5 w-5" />,
     description:
       "A Java client-server chat system with authentication, rooms, live timelines, and special rooms connected to a local LLM.",
@@ -226,7 +239,7 @@ const projects: Project[] = [
   },
   {
     title: "Ricochet Robots Search Solver",
-    eyebrow: "Inteligência Artificial",
+    eyebrow: "Artificial Intelligence",
     icon: <Bot className="h-5 w-5" />,
     description:
       "A solitaire-style puzzle solver comparing uninformed and heuristic search methods with performance metrics and an interactive UI.",
@@ -236,11 +249,11 @@ const projects: Project[] = [
   },
   {
     title: "Machine Learning POC Web App",
-    eyebrow: "Inteligência Artificial",
+    eyebrow: "Artificial Intelligence",
     icon: <GraduationCap className="h-5 w-5" />,
     description:
       "A startup-style machine learning proof of concept using artificial data, a model, and a small web app to demonstrate business value.",
-    categories: ["Course projects", "AI and data", "Web apps"],
+    categories: ["Course projects", "AI and data"],
     tools: ["Machine learning", "POC", "Web app", "Presentation"],
     status: "In progress",
   },
@@ -270,16 +283,10 @@ export default function ProjectsPage(): JSX.Element {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="w-full"
         >
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
-            Selected work
-          </p>
           <div className="grid gap-6 lg:items-end">
-            <div>
-              <h1 className="page-title">Projects</h1>
-              <p className="body-text mt-5 ">
-                A curated list of academic, technical, research, leadership and personal projects from my Informatics Engineering path.
-              </p>
-            </div>
+            <PageIntro eyebrow="Selected work" title="Projects">
+              A collection of projects I’ve worked on throughout my Informatics Engineering journey, from coursework to personal and extracurricular work.
+            </PageIntro>
           </div>
         </motion.section>
 
@@ -294,14 +301,7 @@ export default function ProjectsPage(): JSX.Element {
                   key={filter}
                   type="button"
                   onClick={() => setActiveFilter(filter)}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? "text-white"
-                      : "text-secondary hover:text-primary"
-                  }`}
-                  style={{
-                    background: isActive ? "var(--accent-color)" : "transparent",
-                  }}
+                  className={`filter-pill ${isActive ? "filter-pill-active" : ""}`}
                 >
                   {filter}
                 </button>
@@ -324,12 +324,12 @@ export default function ProjectsPage(): JSX.Element {
               transition={{ duration: 0.5, delay: Math.min(index * 0.03, 0.18) }}
               className="glass-card group grid gap-5 p-5 transition-transform duration-300 hover:-translate-y-1 md:grid-cols-[auto_1fr_auto]"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-md text-white" style={{ background: "var(--accent-color)" }}>
+              <div className="icon-badge h-12 w-12">
                 {project.icon}
               </div>
 
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+                <p className="card-eyebrow">
                   {project.eyebrow}
                 </p>
                 <h2 className="mt-1 text-2xl font-semibold text-primary font-display">
@@ -348,7 +348,7 @@ export default function ProjectsPage(): JSX.Element {
               </div>
 
               <div className="flex items-start justify-between gap-4 md:flex-col md:items-end">
-                <span className="rounded-full px-3 py-1 text-sm text-primary" style={{ background: "color-mix(in srgb, var(--accent-warm) 16%, transparent)" }}>
+                <span className="status-pill">
                   {project.status}
                 </span>
                 {project.githubHref && (

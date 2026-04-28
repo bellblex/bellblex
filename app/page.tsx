@@ -38,17 +38,13 @@ export default function Home() {
   const { theme } = useTheme();
 
   return (
-    <main
-      className={`relative min-h-screen w-screen overflow-hidden ${
-        theme === "dark" ? "bg-gradient-dark" : "bg-gradient-light"
-      }`}
-    >
+    <main className="theme-bg relative min-h-screen w-screen overflow-hidden">
       {theme === "light" && <FluidCursor />}
       {theme === "dark" && <Particles className="absolute inset-0" quantity={90} />}
       <Navigation showBack={false} />
 
       <section className="relative z-10 mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center px-6 pb-10 pt-28 text-center">
-        <div className="flex w-full flex-col items-center gap-7">
+        <div className="flex w-full flex-col items-center gap-4">
           <motion.div
             initial={{ opacity: 0, y: 16, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -92,11 +88,7 @@ export default function Home() {
           </motion.div>
 
           <h1
-            className={`animate-title cursor-default whitespace-nowrap bg-clip-text text-5xl font-bold leading-none text-transparent font-display duration-1000 sm:text-7xl md:text-8xl ${
-              theme === "dark"
-                ? "bg-gradient-to-r from-[#A0AEC0] via-[#63B3ED] to-[#FFD700]"
-                : "bg-gradient-to-r from-[#6C757D] via-[#87CEEB] to-[#D97706]"
-            }`}
+            className="brand-gradient-text animate-title mx-auto w-full cursor-default whitespace-nowrap text-center text-5xl font-bold leading-none font-display duration-1000 sm:text-7xl md:text-8xl"
           >
             Eduarda Magno
           </h1>
@@ -105,7 +97,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: revealDelay + 0.22, ease: "easeOut" }}
-            className="space-y-5"
+            className="max-w-2xl"
           >
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-secondary sm:text-xl">
               Informatics Engineering student at{" "}
@@ -113,7 +105,7 @@ export default function Home() {
                 url="https://www.up.pt/feup/en/"
                 className="text-secondary"
               >
-                Faculdade de Engenharia da Universidade do Porto
+                the Faculty of Engineering of the University of Porto
               </LinkPreview>
               , currently complementing a broad CS foundation with hands-on
               UI/UX and front-end experience.
@@ -145,10 +137,7 @@ export default function Home() {
             {proofCards.map((card) => (
               <article key={card.title} className="glass-card p-4 text-left">
                 <div className="mb-3 flex items-center gap-3">
-                  <span
-                    className="flex h-8 w-8 items-center justify-center rounded-md text-white"
-                    style={{ background: "var(--accent-color)" }}
-                  >
+                  <span className="icon-badge h-8 w-8">
                     {card.icon}
                   </span>
                   <div>

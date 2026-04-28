@@ -25,7 +25,8 @@ const experience = [
     date: "May 2025 - Oct 2025",
     title: "Head Coordinator",
     organization: "SINF 2025 - Week of Informatics",
-    logo: "",
+    logo: "/images/sinf-2025.png",
+    logoBg: "#07111f",
     description: [
       "Led interdepartmental coordination, keeping teams aligned on workflows, deliverables, deadlines, and programme execution.",
     ],
@@ -43,7 +44,8 @@ const experience = [
     date: "Jun 2023 - Apr 2024",
     title: "Logistics Team Member",
     organization: "ENEI 2025 - National Meeting of Informatics Students",
-    logo: "",
+    logo: "/images/enei-2025.png",
+    logoBg: "#ffffff",
     description: [
       "Secured partnerships for meal services and other logistics-related needs.",
       "Contributed directly to the success of the event by supporting smooth operational execution.",

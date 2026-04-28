@@ -26,6 +26,7 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   useLayoutEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
   const toggleTheme = () => {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Github, Mail, Instagram, Linkedin } from "lucide-react";
 import { Navigation } from "../components/nav";
 import ContactForm from "../components/ui/contactForm";
+import PageIntro from "../components/ui/page-intro";
 import SectionDivider from "../components/ui/section-divider";
 
 interface Social {
@@ -48,16 +49,10 @@ export default function ContactPage(): JSX.Element {
 
       <main className="page-wrapper">
         <div className="w-full">
-          <div className="flex flex-col gap-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
-              Get in touch
-            </p>
-            <h1 className="page-title">Contact</h1>
-            <p className="body-text max-w-2xl">
-              Open to proposals, questions, collaborations, and anything that
-              sounds like an interesting technical challenge.
-            </p>
-          </div>
+          <PageIntro eyebrow="Get in touch" title="Contact">
+            Open to proposals, questions, collaborations, and anything that
+            sounds like an interesting challenge.
+          </PageIntro>
         </div>
 
         <div className="grid w-full gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -69,7 +64,7 @@ export default function ContactPage(): JSX.Element {
               aria-label={s.label}
               className="glass-card group flex items-center gap-3 p-3 text-left transition-transform duration-300 hover:-translate-y-1"
             >
-              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md text-white" style={{ background: "var(--accent-color)" }}>
+              <span className="icon-badge h-9 w-9 flex-shrink-0">
                 {s.icon}
               </span>
               <span className="min-w-0">
